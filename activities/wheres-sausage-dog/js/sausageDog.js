@@ -15,6 +15,10 @@ class SausageDog extends Animal {
         }
     }
 
+    wiggle(){
+        
+    }
+
     mousePressed(){
         if( super.mouseOver(mouseX, mouseY) ) {
             this.found = true;

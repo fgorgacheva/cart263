@@ -16,6 +16,7 @@ let sausageDog = undefined;
 let animalImages = [];
 let animals = [];
 
+let indieFlowerFont = undefined;
 
 // preload()
 function preload() {
@@ -25,38 +26,47 @@ function preload() {
     }
 
     sausageDogImg = loadImage(IMG_PATH + "sausage-dog.png");
+
+    indieFlowerFont = loadFont('assets/fonts/IndieFlower-Regular.ttf');
 }
 
 // setup()
 function setup() {
+    
+
     createCanvas(windowWidth, windowHeight);
 
-    //create the 100 animals
-    for(let i = 0; i < NUM_ANIMALS; i++){
-        let x = random(0, width);
-        let y = random(0, height);
-        let image = random(animalImages);
-        let animal = new Animal(x, y, image);
-        animals.push(animal);
-    }
+    textFont(indieFlowerFont);
+    textAlign(CENTER, CENTER);
 
-    sausageDog = new SausageDog (random(0, width), random(0,height), sausageDogImg);
+    // //create the 100 animals
+    // for(let i = 0; i < NUM_ANIMALS; i++){
+    //     let x = random(0, width);
+    //     let y = random(0, height);
+    //     let image = random(animalImages);
+    //     let animal = new Animal(x, y, image);
+    //     animals.push(animal);
+    // }
+
+    // sausageDog = new SausageDog (random(0, width), random(0,height), sausageDogImg);
 
 }
 
 // draw()
 function draw() {
-    background(191, 244, 255);
+    Utilities.startScreen(indieFlowerFont, 200);
+    // background(191, 244, 255);
 
-    for(let i = 0; i < animals.length; i++){
-        animals[i].update();
-    }
+    // for(let i = 0; i < animals.length; i++){
+    //     animals[i].update();
+    // }
 
-    sausageDog.update();
+    // sausageDog.update();
 
 }
 
-//will call the sausageDogg's mousepress to see if it is a sausage and if it should rotate
+//will call the sausageDog's mousepress to see if it is a sausage and if it should rotate
 function mousePressed(){
     sausageDog.mousePressed();
 }
+
