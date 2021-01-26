@@ -1,3 +1,7 @@
+// confetti by slow_izzm on P5.JS editor
+// https://editor.p5js.org/slow_izzm/sketches/H1fhGJSaX
+// i added comments all around to show my understanding of the piece of code 
+
 class Confetti {
     constructor(x, y, s, color) {
         //the x and y would spawn them at random place but above the window, so it seems like they are falling from a higher place
