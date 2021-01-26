@@ -1,9 +1,11 @@
 class SausageDog extends Animal {
-    constructor(x, y, image) {
+    constructor(x, y, image, endScreen) {
         super(x, y, image);
 
         this.found = false;
         this.rotation = 0.25;
+
+        this.endScreen = endScreen;
     }
 
 
@@ -12,11 +14,12 @@ class SausageDog extends Animal {
 
         if(this.found){
             this.angle += this.rotation;
+            this.endScreen();
         }
     }
 
     wiggle(){
-        
+
     }
 
     mousePressed(){

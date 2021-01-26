@@ -17,6 +17,11 @@ let animalImages = [];
 let animals = [];
 
 let indieFlowerFont = undefined;
+let doggos = undefined;
+
+let gameState = 0;
+let winIcon = undefined;
+let endStuff = undefined;
 
 // preload()
 function preload() {
@@ -26,42 +31,41 @@ function preload() {
     }
 
     sausageDogImg = loadImage(IMG_PATH + "sausage-dog.png");
-
     indieFlowerFont = loadFont('assets/fonts/IndieFlower-Regular.ttf');
+    winIcon = loadImage(IMG_PATH + "win.png", width/2, height/2);
 }
 
 // setup()
 function setup() {
-    
-
     createCanvas(windowWidth, windowHeight);
 
     textFont(indieFlowerFont);
     textAlign(CENTER, CENTER);
 
-    // //create the 100 animals
-    // for(let i = 0; i < NUM_ANIMALS; i++){
-    //     let x = random(0, width);
-    //     let y = random(0, height);
-    //     let image = random(animalImages);
-    //     let animal = new Animal(x, y, image);
-    //     animals.push(animal);
-    // }
+    doggos = Utilities.createDoggos();
 
-    // sausageDog = new SausageDog (random(0, width), random(0,height), sausageDogImg);
+    Utilities.setupGame(NUM_ANIMALS, animalImages, animals, endScreen);
+    endStuff = Utilities.setupEndScreen();
 
 }
 
 // draw()
 function draw() {
-    Utilities.startScreen(indieFlowerFont, 200);
-    // background(191, 244, 255);
 
-    // for(let i = 0; i < animals.length; i++){
-    //     animals[i].update();
-    // }
-
-    // sausageDog.update();
+    switch(gameState){
+        case(0): //load title screen
+            Utilities.startScreen(indieFlowerFont, sausageDogImg, doggos);
+            break;
+        case(1): //load game
+            Utilities.drawGame();
+            break;
+        case(2):
+            Utilities.drawGame();
+            Utilities.drawEndScreen(endStuff);
+            imageMode(CENTER);
+            image(winIcon, width/2, height/2, 1000, 1000);
+            break;
+    }
 
 }
 
@@ -70,3 +74,13 @@ function mousePressed(){
     sausageDog.mousePressed();
 }
 
+function keyTyped(){
+    if(keyCode === 32 && gameState === 0){
+        gameState = 1;
+    }
+    return false;
+}
+
+function endScreen(){
+    gameState = 2;
+}
