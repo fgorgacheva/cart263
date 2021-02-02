@@ -23,6 +23,8 @@ let gameState = 0;
 let winIcon = undefined;
 let endStuff = undefined;
 
+let wowSound = undefined;
+
 // preload()
 function preload() {
     for(let i = 0; i < NUM_ANIMAL_IMAGES; i++){
@@ -33,6 +35,7 @@ function preload() {
     sausageDogImg = loadImage(IMG_PATH + "sausage-dog.png");
     indieFlowerFont = loadFont('assets/fonts/IndieFlower-Regular.ttf');
     winIcon = loadImage(IMG_PATH + "win.png", width/2, height/2);
+    wowSound = loadSound('assets/sounds/wow.mp3');
 }
 
 // setup()
@@ -64,6 +67,7 @@ function draw() {
             Utilities.drawEndScreen(endStuff);
             imageMode(CENTER);
             image(winIcon, width/2, height/2, 1000, 1000);
+            
             break;
     }
 
@@ -83,4 +87,6 @@ function keyTyped(){
 
 function endScreen(){
     gameState = 2;
+    wowSound.setLoop(false);
+    wowSound.play();
 }

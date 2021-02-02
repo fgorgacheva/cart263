@@ -14,17 +14,14 @@ class SausageDog extends Animal {
 
         if(this.found){
             this.angle += this.rotation;
-            this.endScreen();
         }
     }
 
-    wiggle(){
-
-    }
 
     mousePressed(){
         if( super.mouseOver(mouseX, mouseY) ) {
-            this.found = true;
+            this.found = true; 
+            this.endScreen();
         }
     }
 }
