@@ -1,4 +1,44 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: black;
+}
+
+#loadingBox{
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@font-face{
+  font-family: 'HogwartsFont';
+  src: url("../assets/fonts/HogwartsFont.TTF");
+}
+
+#loadingText, #continue{
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: 'HogwartsFont';
+  font-size: 100px;
+}
+
+#continue{
+  display: none;
+  text-decoration: none;
+}
+
+#continue:hover{
+  text-shadow: 0 0 50px #fcd703;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
 }

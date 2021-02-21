@@ -1,8 +1,6 @@
 "use strict";
 
-let animalChoice;
-let moneyBalance;
-let gameState;
+
 
 // setup()
 //
@@ -11,6 +9,10 @@ function setup() {
 
     moneyBalance = 0;
 
-    gameState = "beginning";
+    index = -1;
 
+    sceneManager = new SceneManager();
+    document.getElementById("loadingText").style.display = "none";
+    document.getElementById("continue").style.display = "block";
+    console.log("DONE");
 }
