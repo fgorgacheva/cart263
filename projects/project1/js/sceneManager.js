@@ -84,26 +84,31 @@ class SceneManager {
             case("madamMalkins"):
                 background(sprites.malkinsShop); 
                 sounds.diagonAlley.stop();
+                sounds.bell.play();
                 sounds.ollivanders_malkins.play();
                 break;
             case("flourishNBlotts"):
                 background(sprites.flourishnblotts); 
                 sounds.diagonAlley.stop();
+                sounds.bell.play();
                 sounds.flourishnblotts.play();
                 break;
             case("ollivanders"):    
                 background(sprites.ollivandersShop); 
                 sounds.diagonAlley.stop();
+                sounds.bell.play();
                 sounds.ollivanders_malkins.play();
                 break;
             case("slugsNJiggers"):
                 background(sprites.slugsnjiggers); 
                 sounds.diagonAlley.stop();
+                sounds.bell.play();
                 sounds.slugsnjiggers.play();
                 break;
             case("eyelops"):
                 background(sprites.eyelops); 
                 sounds.diagonAlley.stop();
+                sounds.bell.play();
                 sounds.eyelops.play();
                 break;
         }
@@ -189,9 +194,8 @@ class SceneManager {
                 image(sprites.ron, width/2, height/2, width*0.30, height*0.8); 
                 break;
 
-
-            case("exit"):
-                
+            case("pay"):
+                sounds.bell.play();
                 break;
 
             case("end"):

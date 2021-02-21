@@ -17,6 +17,8 @@ let sounds = {
     ollivanders_malkins: {},
     slugsnjiggers: {},
     theme: {},
+    spell: {},
+    coin: {}
 
 };
 
