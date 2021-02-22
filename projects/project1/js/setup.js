@@ -15,4 +15,6 @@ function setup() {
     document.getElementById("loadingText").style.display = "none";
     document.getElementById("continue").style.display = "block";
     console.log("DONE");
+    // 
+
 }
