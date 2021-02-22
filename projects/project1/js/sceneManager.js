@@ -11,6 +11,7 @@ Meet the famous trio and have them help you with your Diagon Alley shopping list
 //represents one scene, each scene has a setting and a dialog, each scene also moves the timeline index
 class SceneManager { 
     index = 0;
+    fade = 0;
 
     constructor (){
     }
@@ -122,31 +123,32 @@ class SceneManager {
        imageMode(CENTER); 
        switch(eventDetails){
             case("start"):
-                image(sprites.envelope, width/2, height/2, width*0.5, height*0.5);
+                console.log("f");
+                this.fadeEffect(sprites.envelope, width/2, height/2, width*0.5, height*0.5);
                 break;
 
             case("openLetter"):
                 background(0);
                 image(sprites.envelope, width/2, height/2, width*0.5, height*0.5);
-                image(sprites.letter, width/2, height/2, width*0.35, height*0.9);
+                this.fadeEffect(sprites.letter, width/2, height/2, width*0.35, height*0.9);
                 sounds.letterIn.play();
                 break;
             
             case("list"):
-                image(sprites.list0, width/2, height/2, width*0.40, height*0.95);
+                this.fadeEffect(sprites.list0, width/2, height/2, width*0.40, height*0.95);
                 sounds.letterIn.play();
                 break;
 
             case("harry"):
-                image(sprites.harry, width/4, height/2, width*0.25, height*0.8);    
+                this.fadeEffect(sprites.harry, width/4, height/2, width*0.25, height*0.8);    
                 break;
 
             case("ron"):
-                image(sprites.ron, (width/4)*3, height/2, width*0.25, height*0.8); 
+                this.fadeEffect(sprites.ron, (width/4)*3, height/2, width*0.25, height*0.8); 
                 break;
 
             case("hermione"):
-                image(sprites.hermione, width/2, height/2, width*0.30, height*0.8); 
+                this.fadeEffect(sprites.hermione, width/2, height/2, width*0.30, height*0.8); 
                 break;
 
             case("goblin"):    
@@ -219,14 +221,69 @@ class SceneManager {
             case("spell"):
                 sounds.spell.play();
                 break;
+            
+            case("owl"):
+                image(sprites.owl, width/2, height/2, width*0.30, height*0.8);
+                break;
+
+            case("cat"):
+                image(sprites.owl, width/2, height/2, width*0.30, height*0.8);
+                break;
+
+            case("toad"):
+                image(sprites.owl, width/2, height/2, width*0.30, height*0.8);
+                break;
         }
 
     }
 
-    fadeEffect(){
-        let fade = 0;
-        let fadeAmount = 
+    fadeEffect(img, x, y, w, h){
+        let fadeAmount = 5;
+        let interval;
+
+        let stopInterval = () => {
+            clearInterval(interval);
+            this.fade = 0;
+        }
+        
+        interval = setInterval(() => {
+            imageMode(CENTER);
+            tint(255, this.fade);
+            image(img, x, y, w, h);
+            this.fade += fadeAmount;
+            // console.log(this.fade);
+            if(this.fade >= 100){
+                stopInterval();
+            }
+            tint(255, 255);
+            this.displayText(dialogArray[index].speaker, dialogArray[index].message);
+        }, 50);
+    }
+
+    comeInEffect(img, x, y, w, h){
+        let size = 0;
+        let increaseAmount = 10;
+        let interval;
+
+        let stopInterval = () => {
+            clearInterval(interval);
+            this.fade = 0;
+        }
+        
+        interval = setInterval(() => {
+            imageMode(CENTER);
+            tint(255, this.fade);
+            image(img, x, y, w, h);
+            this.fade += fadeAmount;
+            // console.log(this.fade);
+            if(this.fade >= 100){
+                stopInterval();
+            }
+            tint(255, 255);
+            this.displayText(dialogArray[index].speaker, dialogArray[index].message);
+        }, 50);
 
     }
+
 }
 
