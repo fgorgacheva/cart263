@@ -10,27 +10,13 @@ Meet the famous trio and have them help you with your Diagon Alley shopping list
 
 //represents one scene, each scene has a setting and a dialog, each scene also moves the timeline index
 class SceneManager { 
-    sceneDialogArray;
     index = 0;
 
-
     constructor (){
-
-        let firstSetting            = new Setting(0,                        {},                         {envelope: sprites.envelope, letter: sprites.letter});
-        let diagonAlleySetting      = new Setting(sprites.diagonAlley,      sounds.diagonAlley,         {harry: sprites.harry, hermione: sprites.hermione, ron: sprites.ron});
-        let gringottsSetting        = new Setting(sprites.gringotts,        sounds.gringotts,           {goblin: sprites.goblin});
-        let madamMalkinsSetting     = new Setting(sprites.malkinsShop,      sounds.malkinsShop,         {madam: sprites.madam});
-        let flourishNBlottsSetting  = new Setting(sprites.flourishnblotts,  sounds.flourishnblotts,     {gilderoy: sprites.gilderoy});
-        let ollivandersSetting      = new Setting(sprites.ollivandersShop,  sounds.ollivanders_malkins, {ollivander: sprites.ollivander});
-        let apothecarySetting       = new Setting(sprites.slugsnjiggers,    sounds.slugsnjiggers,       {snape: sprites.snape});
-        let eyelopsSetting          = new Setting(sprites.eyelops,          sounds.eyelops,             {eyelop: sprites.eyelop});
-        let lastScene               = new Setting(0,                        sounds.theme,               {});
-
-        this.sceneDialogArray = dialogArray;
     }
 
     //will detect if the usesr clicked to continue the text
-    onClick(){
+    onClick(){   
         index++;
         this.loadSetting(dialogArray[index].setting);
         this.eventTrigger(dialogArray[index].event);
@@ -38,27 +24,30 @@ class SceneManager {
     }
 
     displayText(speaker, dialog) {
-        imageMode(CENTER);
-        image(sprites.dialogBox, width/2, height*0.86, width*0.7, height*0.23);
-        imageMode(CORNER);
-        fill('#2b2b2b');
+        if(index < dialogArray.length && speaker && dialog){
+            imageMode(CENTER);
+            image(sprites.dialogBox, width/2, height*0.86, width*0.7, height*0.23);
+        
+            imageMode(CORNER);
+            fill('#2b2b2b');
 
-        if( speaker === "ME"){
-            textFont(schoolFont);
-            textAlign(LEFT);
-            textSize(width*0.0125);
-            text(dialog, width*0.22, height*0.85, width*0.55);
-        }
-        else{
-            textFont(magicFont);
-            textAlign(LEFT);
-            textSize(width*0.013);
-            text(speaker, width*0.22, height*0.815, width*0.55);
+            if( speaker === "ME"){
+                textFont(schoolFont);
+                textAlign(LEFT);
+                textSize(width*0.0125);
+                text(dialog, width*0.22, height*0.85, width*0.55);
+            }
+            else{
+                textFont(magicFont);
+                textAlign(LEFT);
+                textSize(width*0.013);
+                text(speaker, width*0.22, height*0.815, width*0.55);
 
-            textFont(schoolFont);
-            textAlign(LEFT);
-            textSize(width*0.0125);
-            text(dialog, width*0.22, height*0.85, width*0.55);
+                textFont(schoolFont);
+                textAlign(LEFT);
+                textSize(width*0.0125);
+                text(dialog, width*0.22, height*0.85, width*0.55);
+            }
         }
     }
 
@@ -78,38 +67,53 @@ class SceneManager {
                 break;
             case("gringotts"):
                 background(sprites.gringotts); 
+                sounds.doorOpen.play();
                 sounds.diagonAlley.stop();
                 sounds.gringotts.play();
                 break;
+
             case("madamMalkins"):
                 background(sprites.malkinsShop); 
                 sounds.diagonAlley.stop();
                 sounds.bell.play();
                 sounds.ollivanders_malkins.play();
                 break;
+
             case("flourishNBlotts"):
                 background(sprites.flourishnblotts); 
                 sounds.diagonAlley.stop();
                 sounds.bell.play();
                 sounds.flourishnblotts.play();
                 break;
+
             case("ollivanders"):    
                 background(sprites.ollivandersShop); 
                 sounds.diagonAlley.stop();
                 sounds.bell.play();
                 sounds.ollivanders_malkins.play();
                 break;
+
             case("slugsNJiggers"):
                 background(sprites.slugsnjiggers); 
                 sounds.diagonAlley.stop();
                 sounds.bell.play();
                 sounds.slugsnjiggers.play();
                 break;
+
             case("eyelops"):
                 background(sprites.eyelops); 
                 sounds.diagonAlley.stop();
                 sounds.bell.play();
                 sounds.eyelops.play();
+                break;
+
+            case("end"):
+                background(0);
+                sounds.diagonAlley.fade(0, 1);
+                sounds.theme.play();
+                document.getElementById("continue").style.display = "none";
+                document.getElementById("textBox").style.display = "flex";
+                document.getElementById("replay").style.display = "flex";
                 break;
         }
     }
@@ -122,7 +126,14 @@ class SceneManager {
                 break;
 
             case("openLetter"):
-                image(sprites.letter, width/2, height/3+50, width*0.25, height*0.7);
+                background(0);
+                image(sprites.envelope, width/2, height/2, width*0.5, height*0.5);
+                image(sprites.letter, width/2, height/2, width*0.35, height*0.9);
+                sounds.letterIn.play();
+                break;
+            
+            case("list"):
+                image(sprites.list0, width/2, height/2, width*0.40, height*0.95);
                 sounds.letterIn.play();
                 break;
 
@@ -181,27 +192,40 @@ class SceneManager {
             case("measureWand"):
                 sounds.measureWand.play();
                 break;
-
-            case("alone"):
+                        
+            case("diagonAlley"):
                 imageMode(CORNER);
                 background(sprites.diagonAlley);
                 break;
-            
+
             case("onlyRon"):
-                imageMode(CORNER);
                 background(sprites.diagonAlley);
                 imageMode(CENTER);
                 image(sprites.ron, width/2, height/2, width*0.30, height*0.8); 
                 break;
 
             case("pay"):
+                sounds.coin.play();
+                break;
+            
+            case("bell"):
                 sounds.bell.play();
                 break;
 
-            case("end"):
-                
+            case("closeDoor"):
+                sounds.doorClose.play();
+                break;
+            
+            case("spell"):
+                sounds.spell.play();
                 break;
         }
+
+    }
+
+    fadeEffect(){
+        let fade = 0;
+        let fadeAmount = 
 
     }
 }

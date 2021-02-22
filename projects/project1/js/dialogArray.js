@@ -10,8 +10,12 @@ const dialogArray = [
     {speaker: "ME",         message: "Wow... "},
 
     //2 scene: 7-8 9-22 23 =================================================================================================================================================
-    {speaker: "ME",         message: "Diagon Alley..? Is this it? This would be easier if I knew any body else here...", setting: "diagonAlley"},
-    {speaker: "ME",         message: "Where do I start? Uniforms.. Books.. Wands.. Cauldrons.."},
+    {setting: "diagonAlley"},
+    
+    {speaker: "ME",         message: "Diagon Alley..? Is this it? This would be easier if I knew any body else here..."},
+    {speaker: "ME",         message: "Where do I start? Uniforms.. Books.. Wands.. Cauldrons..", event: "diagonAlley"},
+    {event: "list"},
+    {speaker: "ME",         message: "ugh... >_<", event: "diagonAlley"},
     // 9-22
     {speaker: "HERMIONE",   message: "Hey there, stranger! You look lost. Is it your first time here?", event: "hermione"},
     {speaker: "ME",         message: "Uh.. y-yeah.. Is it obvious? hehe~"},
@@ -28,43 +32,53 @@ const dialogArray = [
     {speaker: "RON",        message: "We've got some stuff to buy ourselves, but we'll help you out with your next stop once you're done getting your uniforms!"},
     {speaker: "HERMIONE",   message: "Oh and I've marked the name of the shop on your list in case you don't remember it! Good luck!"},
     // 23
-    {speaker: "ME",         message: "Madam Malkin's... Gringotts... This is crazy!", event: "alone"},
+    {speaker: "ME",         message: "Madam Malkin's... Gringotts... This is crazy!", event: "diagonAlley"},
 
     //3 scene: 24-30 =================================================================================================================================================
-    {speaker: "GRINGOTTS HEAD GOBLIN", message: "....", setting: "gringotts"},
+    {setting: "gringotts"},
+
+    {speaker: "GRINGOTTS HEAD GOBLIN", message: "...."},
     {speaker: "ME",                    message: "Um.. Hi- Hello! I would like to retrieve some mone- Galleons? Galleons!"},
     {speaker: "GRINGOTTS HEAD GOBLIN", message: "You've got a key?", event: "goblin"},
     {speaker: "ME",                    message: "(A key?! OH! Grandma gave me a key and told me to keep it very safe, that I'd know when to use it! This must be it!)"},
     {speaker: "ME",                    message: "I have a key! Here it is, sir!"},
     {speaker: "GRINGOTTS HEAD GOBLIN", message: "Mmh... Take what you need from your vault."},
-    {speaker: "ME",                    message: "Thank you sir!"},
+    {speaker: "ME",                    message: "Thank you sir!", event: "pay"},
 
     //4 scene: 31-32 =================================================================================================================================================
-    {speaker: "ME", message: "Phew! That place looked scary... I guess you'd think twice before robbing a place like this...", setting: "diagonAlley"},
+    {setting: "diagonAlley", event: "closeDoor"},
+
+    {speaker: "ME", message: "Phew! That place looked scary... I guess you'd think twice before robbing a place like this..."},
     {speaker: "ME", message: "Alright! Uniforms.. To Madam Malkin's!"},
 
     //5 scene: 33-39 =================================================================================================================================================
-    {speaker: "MADAM MALKIN", message: "Hello, dear!", event: "madam", setting: "madamMalkins"},
+    {setting: "madamMalkins", event: "bell"},
+
+    {speaker: "MADAM MALKIN", message: "Hello, dear!", event: "madam"},
     {speaker: "ME",           message: "Hello! I'm here to get everything that is on this list!", event: "letterIn"},
     {speaker: "MADAM MALKIN", message: "Oh~ A first year, are we? How exciting! Hop on here, dear, I will take your measurements and prepare everything for you!"},
     {speaker: "MADAM MALKIN", message: "Alrighty then~ ", event: "measureFabric"},
     {speaker: "MADAM MALKIN", message: "You're all done, dear! Here is everything you need! That'll be 300 Galleons!"},
-    {speaker: "ME",           message: "Here you go!"},
+    {speaker: "ME",           message: "Here you go!", event: "pay"},
     {speaker: "MADAM MALKIN", message: "Thank you, dear! I hope you have an amazing school year ahead of you!"},
 
     //6 scene: 40-45 =================================================================================================================================================
-    {speaker: "HERMIONE", message: "Hey, I see you've got your uniforms! Ready for your next stop?", setting: "diagonAlley", event: "hermione"},
+    {setting: "diagonAlley", event: "bell"},
+
+    {speaker: "HERMIONE", message: "Hey, I see you've got your uniforms! Ready for your next stop?", event: "hermione"},
     {speaker: "HERMIONE", message: "To get any book that you'll ever need for Hogwarts, you can go to Flourish and Blotts! It's actually right past Madam Malkin's shop!"},
     {speaker: "RON",      message: "I have to warn you though, today seems to be a meet and greet day with Gilderoy Lockheart there... The women are all crazy around him, so be careful..", event: "ron"},
     {speaker: "HERMIONE", message: "That's not true!!"},
     {speaker: "RON",      message: "Is that why you drew hearts on all of the author portraits of his books you already own?? "},
     {speaker: "HARRY",    message: "Guys, guys, come on..~ Sorry about that... Anyway, we'll see you for the next thing you need! You've got this!", event: "harry"},
     // 46-47
-    {speaker: "ME",       message: "A funny bunch they are... I hope we get to be friends once school starts!", event: "alone"},
+    {speaker: "ME",       message: "A funny bunch they are... I hope we get to be friends once school starts!", setting: "diagonAlley"},
     {speaker: "ME",       message: "Alright now, books... Gilderoy Lockheart... Is he that handsome? "},
 
     //7 scene: 48-56 =================================================================================================================================================
-    {speaker: "ME",                 message: "WOAH, SO MANY PEOPLE! AND FLOATING BOOKS!", setting: "flourishNBlotts"},
+    {setting: "flourishNBlotts", event: "bell"},
+    
+    {speaker: "ME",                 message: "WOAH, SO MANY PEOPLE! AND FLOATING BOOKS!"},
     {speaker: "ME",                 message: "Alright I just need to get these 8 books, and I'll be right outta here!"},
     {speaker: "GILDEROY LOCKHEART", message: "Well we've got a first year, here, don't we! Unfortunate that you will not be in my Defense Against the Dark Arts class.", event: "gilderoy"},
     {speaker: "ME",                 message: "Well I don't know anything yet, I'm not from around here.."},
@@ -73,11 +87,13 @@ const dialogArray = [
     {speaker: "GILDEROY LOCKHEART", message: "You really don't want this once in a lifetime offer from the famous GILDEROY LOCKHEART?!"},
     {speaker: "ME",                 message: "Like I said, I'm not from around here. I'm afraid I haven't heard of you, sir.."},
     {speaker: "GILDEROY LOCKHEART", message: "Well... You will in good time! These 8 books then? That'll be 200 Galleons!"},
-    {speaker: "ME",                 message: "Here. Thank you, sir."},
+    {speaker: "ME",                 message: "Here. Thank you, sir.", event: "pay"},
     {speaker: "GILDEROY LOCKHEART", message: "Alright then! I will see you around the school!"},
 
     //8 scene: 57 =================================================================================================================================================
-    {speaker: "ME",       message: "Isn't he a handfull... Thank god he won't be my professor this year...", setting: "diagonAlley"},
+    {setting: "diagonAlley", event: "bell"},
+    
+    {speaker: "ME",       message: "Isn't he a handfull... Thank god he won't be my professor this year..."},
     // 58-64
     {speaker: "RON",      message: "You're alive!!", event: "ron"},
     {speaker: "HERMIONE", message: "You've got all your books! There are so many, right?" , event: "hermione"},
@@ -87,10 +103,12 @@ const dialogArray = [
     {speaker: "ME",       message: "It does sound really exciting, I can't wait to get it!"},
     {speaker: "HERMIONE", message: "Off you go then, can't wait to hear what chooses you!"},
     //65
-    {speaker: "ME",       message: "My very own wand! I can't believe any of this...!", event: "alone"},
+    {speaker: "ME",       message: "My very own wand! I can't believe any of this...!", setting: "diagonAlley"},
 
     //9 scene: 66-74 =================================================================================================================================================
-    {speaker: "OLLIVANDER", message: "Hello, hello! Come on in!", setting: "ollivanders"},
+    {setting: "ollivanders", event: "bell"},
+    
+    {speaker: "OLLIVANDER", message: "Hello, hello! Come on in!"},
     {speaker: "OLLIVANDER", message: "Here to get our first wand, aren't we? Well now, let me see. Which is you wand hand?", event: "ollivander"},
     {speaker: "ME",         message: "Well, I'm right handed..."},
     {speaker: "OLLIVANDER", message: "Hold out your arm. That's it. I will take your measurements."},
@@ -99,16 +117,18 @@ const dialogArray = [
     {speaker: "OLLIVANDER", message: "NOT THIS ONE. Try that one. Maple and phoenix feather, seven inches, quite whippy, try-" , event: "box"},
     {speaker: "OLLIVANDER", message: "NO, NO! Alright, here... Ebony, unicorn hair, eight and a half inches, springy. Go on, go on! Try!", event: "box"},
     {speaker: "OLLIVANDER", message: "This seems to be the one! The wand chooses the wizard, remember that! It'll be 90 Galleons! ", event: "spell"},
-    {speaker: "ME",         message: "Thank you so very much sir!"},
+    {speaker: "ME",         message: "Thank you so very much sir!", event: "pay"},
     {speaker: "OLLIVANDER", message: "We shall expect great things from you! Enjoy your beautiful wand!"},
 
     //10 scene: 77 =================================================================================================================================================
-    {speaker: "ME",       message: "MY WAND! IT IS MINE AND I AM ITS! I CAN'T WAIT TO USE IT!", setting: "diagonAlley"},
+    {setting: "diagonAlley", event: "bell"},
+    
+    {speaker: "ME",       message: "MY WAND! IT IS MINE AND I AM ITS! I CAN'T WAIT TO USE IT!"},
     // 78-87
     {speaker: "HERMIONE", message: "Heeeeyyy!!"},
     {speaker: "HERMIONE", message: "So? Tell me, tell me! What did you get?", event: "hermione"},
     {speaker: "ME",       message: "Ebony with a unicorn hair core, eight inches and a half.. Springy!"},
-    {speaker: "HERMIONE", message: "Ebony? I never would've thought! That's a great wand!"},
+    {speaker: "HERMIONE", message: "Ebony and unicorn hair core? I never would've thought! That's a great wand!"},
     {speaker: "HARRY",    message: "Congratulations!", event: "harry"},
     {speaker: "RON",      message: "Have you got anything left?", event: "ron"},
     {speaker: "ME",       message: "Yes. A cauldron, glass or crystal phials, a telescope and a set of brass scales."},
@@ -116,10 +136,12 @@ const dialogArray = [
     {speaker: "ME",       message: "On it!"},
     {speaker: "HERMIONE", message: "See you soon!"},
     // 88
-    {speaker: "ME",       message: "Slugs and Jiggers... Sounds creepy...", event: "alone"},
+    {speaker: "ME",       message: "Slugs and Jiggers... Sounds creepy...", setting: "diagonAlley"},
 
     //11 scene: 89-101 =================================================================================================================================================
-    {speaker: "ME",            message: "... ", setting: "slugsNJiggers"},
+    {setting: "slugsNJiggers", event: "bell"},
+    
+    {speaker: "ME",            message: "... "},
     {speaker: "ME",            message: "Potions sound exciting but this place gives me the creeps..."},
     {speaker: "SEVERUS SNAPE", message: "A first year huh... Do not take potions lightly. They are capable of things you can't yet phathom...", event: "snape"},
     {speaker: "ME",            message: "S-sorry, sir..."},
@@ -132,11 +154,13 @@ const dialogArray = [
     {speaker: "SEVERUS SNAPE", message: "This is the one they sell here, but it's not the best. However, I am not your astronomy professor, so I don't care. "},
     {speaker: "ME",            message: "Thank you, sir."},
     {speaker: "SEVERUS SNAPE", message: "Is that all for you? That's 150 Galleons."},
-    {speaker: "ME",            message: "It was kind of you to help me sir, thank you."},
+    {speaker: "ME",            message: "It was kind of you to help me sir, thank you.", event: "pay"},
     {speaker: "SEVERUS SNAPE", message: "This better not have been a waste of my precious time. I expect no less than a perfect score from you."},
 
     //12 scene: 104 =================================================================================================================================================
-    {speaker: "ME",       message: "Oh my... That professor does not seem very pleasant... Now I'm afraid of potions class.", setting: "diagonAlley"},
+    {setting: "diagonAlley", event: "bell"},
+    
+    {speaker: "ME",       message: "Oh my... That professor does not seem very pleasant... Now I'm afraid of potions class."},
     // 105-117
     {speaker: "RON",      message: "There you are! So you got the last of your stuff?", event: "ron"},
     {speaker: "ME",       message: "I did yeah..."},
@@ -152,10 +176,12 @@ const dialogArray = [
     {speaker: "HERMIONE", message: "At Eyelop's Owl Emporium and Magical Menagerie! It's right down on your left. Let me mark it on your list~"},
     {speaker: "RON",      message: "I hope you don't get a cat, or scabbers will have a heart attack. He's got enough of Crookshanks... "},
     // 118
-    {speaker: "ME",       message: "But cats are so soft...!", event: "alone"},
+    {speaker: "ME",       message: "But cats are so soft...!", setting: "diagonAlley"},
 
     //13 scene: 119-127 =================================================================================================================================================
-    {speaker: "EYELOP", message: "Hello there!", setting: "eyelops", event: "eyelop"},
+    {setting: "eyelops", event: "bell"},
+    
+    {speaker: "EYELOP", message: "Hello there!", event: "eyelop"},
     {speaker: "ME",     message: "Hello sir, I've come to buy a magical pet! "},
     {speaker: "EYELOP", message: "Well then, which would you like? "},
     {speaker: "ME",     message: "I can only pick between an owl, a cat or a toad. But I don't know which one to go for..."},
@@ -166,11 +192,18 @@ const dialogArray = [
     {speaker: "EYELOP", message: "So which one will it be? "},
     //*give choice* 128
     {speaker: "EYELOP", message: "Amazing choice! To each their own and I hope you will be loyal to each other!", event: "animal"},
-    {speaker: "ME",     message: "This is my very first pet and I'm excited to love him every day! I shall call him Squishy, and he shall be mine! He shall be my Squishy!"},
+    //specific animal choice dialog
+    {speaker: "EYELOP", message: "It's 190 Galleons for the owl!"},
+    {speaker: "EYELOP", message: "It's 120 Galleons for the cat!"},
+    {speaker: "EYELOP", message: "It's 30 Galleons for the toad!"},
+
+    {speaker: "ME",     message: "This is my very first pet and I'm excited to love him every day! I shall call him Squishy, and he shall be mine! He shall be my Squishy!", event: "pay"},
     {speaker: "EYELOP", message: "May you keep each other warm during the coldest nights! Animals are very precious!"},
     
     //14 scene: 131 =================================================================================================================================================
-    {speaker: "ME",       message: "I am overwhelmed! Uniforms, books, cauldrons, my very own beautiful ebody wand with a unicorn hair core and my new Squishy! I've always wanted a pet, but mom never allowed it!", setting: "diagonAlley"},
+    {setting: "diagonAlley", event: "bell"},
+    
+    {speaker: "ME",       message: "I am overwhelmed! Uniforms, books, cauldrons, my very own beautiful ebody wand with a unicorn hair core and my new Squishy! I've always wanted a pet, but mom never allowed it!"},
     // 132-133
     {speaker: "HERMIONE", message: "Hey! did you get your pet? Which one did you choose?", event: "hermione"},
     //show animal
@@ -189,7 +222,9 @@ const dialogArray = [
     {speaker: "RON",      message: "By the way, my little sister, Ginny, is also starting at Hogwarts this year. If you end up in Gryffindor, you could be each other's first friends. It's always nice to have a friendly face around when you start something big like this! Anyway, it was nice meeting you!", event: "onlyRon"},
     
     //15 scene: 143-145 =================================================================================================================================================
-    {speaker: "ME", message: "All this... It must be a dream, I can't believe my own eyes!", setting: "diagonAlley", event: "alone"},
+    {speaker: "ME", message: "All this... It must be a dream, I can't believe my own eyes!", setting: "diagonAlley", setting: "diagonAlley"},
     {speaker: "ME", message: "Floating books and quills, broomsticks, messagin owls, potions, goblins, wands... MAGIC!! It's all so crazy..."},
-    {speaker: "ME", message: "Hogwarts... Here I come! See you September 1st!", event: "end"}
+    {speaker: "ME", message: "Hogwarts... Here I come! See you September 1st!"},
+
+    {setting: "end"}
 ];

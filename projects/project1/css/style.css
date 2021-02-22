@@ -4,7 +4,7 @@ body {
   background-color: black;
 }
 
-#loadingBox{
+#textBox{
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -21,7 +21,7 @@ body {
   src: url("../assets/fonts/HogwartsFont.TTF");
 }
 
-#loadingText, #continue{
+#textBox, #continue, #replay{
   padding: 0;
   margin: 0;
   color: white;
@@ -29,12 +29,12 @@ body {
   font-size: 100px;
 }
 
-#continue{
+#continue, #replay{
   display: none;
   text-decoration: none;
 }
 
-#continue:hover{
+#continue:hover, #replay:hover{
   text-shadow: 0 0 50px #fcd703;
 }
 

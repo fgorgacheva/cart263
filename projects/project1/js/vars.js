@@ -18,8 +18,9 @@ let sounds = {
     slugsnjiggers: {},
     theme: {},
     spell: {},
-    coin: {}
-
+    coin: {},
+    doorOpen: {},
+    doorClose: {}
 };
 
 
