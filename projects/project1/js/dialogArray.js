@@ -169,7 +169,7 @@ const dialogArray = [
     {speaker: "HARRY",    message: "No one likes Snape except Slytherins! He scares everybody, but don't worry. You'll be fine in his class, I know it!", event: "harry"},
     {speaker: "HERMIONE", message: "By the way, do you have a magical pet? You're allowed to bring one!", event: "hermione"},
     {speaker: "ME",       message: "A magical pet? No, I don't have one."},
-    {speaker: "HERMIONE", message: "Look at the bottom of your list. You can pick an owl, a cat or a toad! I have a cat named Crookshanks!"},
+    {speaker: "HERMIONE", message: "It says so at the bottom of your list. You can pick an owl, a cat or a toad! I have a cat named Crookshanks!"},
     {speaker: "HARRY",    message: "Hagrid, the gamekeeper at Hogwarts gifted me Hedwig. She's a snowy owl."},
     {speaker: "RON",      message: "I've got Scabbers... It's a rat, I know it's not one of the three, but he's been with the Weasleys for a while, so the school allowed it."},
     {speaker: "ME",       message: "It's hard to pick one. But where should I go to get a pet like that? "},

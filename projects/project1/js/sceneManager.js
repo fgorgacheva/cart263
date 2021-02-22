@@ -75,6 +75,12 @@ class SceneManager {
                 if(!this.playHistory[index]){
                         this.playHistory[index] = true;
                         sounds.diagonAlley.play();
+                        if(dialogArray[index].event == 'bell'){
+                            sounds.bell.play();
+                        }
+                        else if(dialogArray[index].event == 'closeDoor'){
+                            sounds.doorClose.play();
+                        }
                     }
                 break;
             
@@ -312,8 +318,7 @@ class SceneManager {
                     }
                     break;
                 
-                case("bell"):
-                    
+                case("bell"):  
                     if(!this.playHistory[index]){
                         this.playHistory[index] = true;
                         sounds.bell.play();
