@@ -27,3 +27,4 @@ function preload() {
     schoolFont = loadFont('../assets/fonts/Schoolbook.otf');
     
 }
+

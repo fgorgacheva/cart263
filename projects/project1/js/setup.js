@@ -17,4 +17,12 @@ function setup() {
     console.log("DONE");
     // 
 
+    pets = [ "owl", "cat", "toad"];
+
+    pets.forEach((element)=> {
+        document.getElementById(element).addEventListener("click", () => {
+            sceneManager.animalChoice(element);
+        });
+    })
+    
 }

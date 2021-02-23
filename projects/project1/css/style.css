@@ -4,7 +4,7 @@ body {
   background-color: black;
 }
 
-#textBox{
+#textBox, #buttons{
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -29,13 +29,45 @@ body {
   font-size: 100px;
 }
 
-#continue, #replay{
+#continue, #replay
+
+{
   display: none;
   text-decoration: none;
 }
 
 #continue:hover, #replay:hover{
   text-shadow: 0 0 50px #fcd703;
+}
+#buttons {
+  position: absolute;
+  display: none;
+  text-decoration: none;
+  
+}
+
+#buttons button{  
+  font-family: 'HogwartsFont';
+  font-size: 40px;
+  color: white;
+  background-color: #3b4661;
+  width: 15%;
+  height: 7%;
+  border: none;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+button:hover{
+  background-color: #333c52 !important;
+  width: 15.5% !important;
+  height: 7.5% !important;
+  box-shadow: 0 0 20px white;
+  transition: 0.2s;
+}
+
+#cat{
+  margin: 3% 0 3% 0;
 }
 
 main {

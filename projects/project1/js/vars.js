@@ -72,10 +72,12 @@ let sprites = {
     toad: {},
 }
 
-let animalChoice;
+let pets;
+let animalChosen;
 let moneyBalance;
 let index;
 
 let sceneManager;
 let magicFont;
 let schoolFont;
+

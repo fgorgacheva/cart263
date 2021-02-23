@@ -21,15 +21,14 @@ class SceneManager {
 
     //will detect if the usesr clicked to continue the text
     onClick(){  
-        if(!this.isFading) {
+        if(!this.isFading ) {
             index++;
             this.fade = 0;
             this.size = 0;
+        }      
+        if(!animalChosen && dialogArray[index].event == "animalChoosing"){
+            index--;
         }
-        // this.loadSetting(dialogArray[index].setting);
-        // this.eventTrigger(dialogArray[index].event);
-        // this.displayText(dialogArray[index].speaker, dialogArray[index].message);
-        
         
     }
 
@@ -40,6 +39,22 @@ class SceneManager {
         
             imageMode(CORNER);
             fill('#2b2b2b');
+            // console.log(animalChosen, dialogArray[index].event);
+            if(animalChosen && dialogArray[index].event == "animalChosen"){
+                let {cost, exclamation, animal} = animalChosen;
+                dialog = `${exclamation} It will be ${cost} for the ${animal}`;
+
+                textFont(magicFont);
+                textAlign(LEFT);
+                textSize(width*0.013);
+                text(speaker, width*0.22, height*0.815, width*0.55);
+
+                textFont(schoolFont);
+                textAlign(LEFT);
+                textSize(width*0.0125);
+                text(dialog, width*0.22, height*0.85, width*0.55); 
+                return;
+            }
 
             if( speaker === "ME"){
                 textFont(schoolFont);
@@ -160,19 +175,13 @@ class SceneManager {
         }
 
         if(settingDetails === "madamMalkins" || settingDetails === "flourishNBlotts" || settingDetails === "ollivanders" || settingDetails === "slugsNJiggers" || settingDetails === "eyelops"){
-                sounds.diagonAlley.stop();
-                
-                if(!this.playHistory[index]){
-                        this.playHistory[index] = true;
-                        
-                    }
-                
+                sounds.diagonAlley.stop();                
         }
     }
 
-    eventTrigger(eventDetails){
+    eventTrigger(event){
         imageMode(CENTER); 
-        switch(eventDetails){
+        switch(event){
                 case("start"):
                     this.fadeEffect(sprites.envelope, width/2, height/2, width*0.5, height*0.5);
                     break;
@@ -193,30 +202,6 @@ class SceneManager {
                         this.playHistory[index] = true;
                         sounds.letterIn.play();
                     }
-                    break;
-                
-                case("hermione"):
-                    imageMode(CORNER);
-                    background(sprites.diagonAlley);                    
-                    imageMode(CENTER);
-                    this.comeInEffect(sprites.hermione, width/2, height/2, width*0.30, height*0.8); 
-                    break;
-                
-                case("harry"):
-                    imageMode(CORNER);
-                    background(sprites.diagonAlley);                    
-                    imageMode(CENTER);
-                    image(sprites.hermione, width/2, height/2, width*0.30, height*0.8);
-                    this.comeInEffect(sprites.harry, width/4, height/2, width*0.25, height*0.8);    
-                    break;
-    
-                case("ron"):
-                    imageMode(CORNER);
-                    background(sprites.diagonAlley);                    
-                    imageMode(CENTER);
-                    image(sprites.hermione, width/2, height/2, width*0.30, height*0.8);
-                    image(sprites.harry, width/4, height/2, width*0.25, height*0.8);
-                    this.comeInEffect(sprites.ron, (width/4)*3, height/2, width*0.25, height*0.8); 
                     break;
     
                 case("goblin"):   
@@ -247,7 +232,8 @@ class SceneManager {
                     this.comeInEffect(sprites.gilderoy, (width/4)*2.5, height/2, width*0.20, height*0.8);
                     break;
                 
-                case("eyelop"):
+                case("animalChosen"):
+                case("eyelop"): 
                     imageMode(CORNER);
                     background(sprites.eyelops);                    
                     imageMode(CENTER);
@@ -305,9 +291,10 @@ class SceneManager {
                     break;
     
                 case("onlyRon"):
+                    imageMode(CORNER);
                     background(sprites.diagonAlley);
                     imageMode(CENTER);
-                    image(sprites.ron, width/2, height/2, width*0.30, height*0.8); 
+                    this.comeInEffect(sprites.ron, width/2, height/2, width*0.30, height*0.8); 
                     break;
     
                 case("pay"):
@@ -325,8 +312,7 @@ class SceneManager {
                     }
                     break;
     
-                case("closeDoor"):
-                    
+                case("closeDoor"):   
                     if(!this.playHistory[index]){
                         this.playHistory[index] = true;
                         sounds.doorClose.play();
@@ -341,19 +327,98 @@ class SceneManager {
                     }
                     break;
                 
+                case("animalChoice"):
+                    imageMode(CORNER);
+                    background(sprites.eyelops);
+                    document.getElementById("buttons").style.display = "flex";
+                    break;
+
                 case("owl"):
-                    image(sprites.owl, width/2, height/2, width*0.30, height*0.8);
+                    imageMode(CORNER);
+                    background(sprites.diagonAlley);
+                    imageMode(CENTER);
+                    this.comeInEffect(sprites.owl, width/2, height/2, width*0.30, height*0.55);
                     break;
     
                 case("cat"):
-                    image(sprites.owl, width/2, height/2, width*0.30, height*0.8);
+                    imageMode(CORNER);
+                    background(sprites.diagonAlley);
+                    imageMode(CENTER);
+                    this.comeInEffect(sprites.cat, width/2, height/2, width*0.4, height*0.6);
                     break;
     
                 case("toad"):
-                    image(sprites.owl, width/2, height/2, width*0.30, height*0.8);
+                    imageMode(CORNER);
+                    background(sprites.diagonAlley);
+                    imageMode(CENTER);
+                    this.comeInEffect(sprites.toad, width/2, height/2, width*0.30, height*0.4);
                     break;
-            }
+        }
+    }
 
+    manageTrioCharacters(order){
+        switch(order){
+            case("hermione"):
+                imageMode(CORNER);
+                background(sprites.diagonAlley);                    
+                imageMode(CENTER);
+                this.comeInEffect(sprites.hermione, width/2, height/2, width*0.30, height*0.8); 
+                break;
+        
+            case("harry"):
+                imageMode(CORNER);
+                background(sprites.diagonAlley);                    
+                imageMode(CENTER);
+                image(sprites.hermione, width/2, height/2, width*0.30, height*0.8);
+                this.comeInEffect(sprites.harry, width/4, height/2, width*0.25, height*0.8);    
+                break;
+
+            case("ron"):
+                imageMode(CORNER);
+                background(sprites.diagonAlley);                    
+                imageMode(CENTER);
+                image(sprites.hermione, width/2, height/2, width*0.30, height*0.8);
+                image(sprites.harry, width/4, height/2, width*0.25, height*0.8);
+                this.comeInEffect(sprites.ron, (width/4)*3, height/2, width*0.25, height*0.8); 
+                break;
+        }
+    }
+
+    animalChoice(animal){      
+        switch(animal){
+            case("owl"):
+                animalChosen = {exclamation: "Great choice!", cost: "190", animal};
+                document.getElementById("buttons").style.display = "none";
+                dialogArray[153].message = "An owl!";
+                dialogArray[153].event = "owl";
+
+                dialogArray[154].message = "What a majestic owl!";
+                dialogArray[155].message = "It's just like Harry's!";
+
+                break;
+                
+                case("cat"):
+                animalChosen = {exclamation: "Amazing choice!", cost: "120", animal};
+                document.getElementById("buttons").style.display = "none";
+                dialogArray[153].message = "A cat!";
+                dialogArray[153].event = "cat";
+
+                dialogArray[154].message = "Oh my! What a beautiful cat!";
+                dialogArray[155].message = "I'm sorry Scabbers...";
+                break;
+
+            case("toad"):
+                animalChosen = {exclamation: "To each their own!", cost: "30", animal};
+                document.getElementById("buttons").style.display = "none";
+                dialogArray[153].message = "A toad!";
+                dialogArray[153].event = "toad";
+
+                dialogArray[154].message = "Oh you got a toad...";
+                dialogArray[155].message = "Neville Longbottom has a toad, too! His name's Trevor, but Neville somehow always manages to lose him...";
+                break;
+        }
+        index++;
+        
     }
 
     fadeEffect(img, x, y, w, h){
@@ -387,6 +452,8 @@ class SceneManager {
         this.size += increaseAmount;
         
     }
+
+
 
 }
 

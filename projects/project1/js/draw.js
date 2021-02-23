@@ -7,9 +7,9 @@ function draw() {
 
 
     if(dialogArray[index]){
-
         sceneManager.loadSetting(dialogArray[index].setting);
         sceneManager.eventTrigger(dialogArray[index].event);
+        sceneManager.manageTrioCharacters(dialogArray[index].order);
         sceneManager.displayText(dialogArray[index].speaker, dialogArray[index].message);
     }
 }
