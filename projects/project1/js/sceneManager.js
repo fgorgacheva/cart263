@@ -204,6 +204,30 @@ class SceneManager {
                     }
                     break;
     
+                case("hermione"):
+                    imageMode(CORNER);
+                    background(sprites.diagonAlley);                    
+                    imageMode(CENTER);
+                    this.comeInEffect(sprites.hermione, width/2, height/2, width*0.30, height*0.8); 
+                    break;
+            
+                case("harry"):
+                    imageMode(CORNER);
+                    background(sprites.diagonAlley);                    
+                    imageMode(CENTER);
+                    image(sprites.hermione, width/2, height/2, width*0.30, height*0.8);
+                    this.comeInEffect(sprites.harry, width/4, height/2, width*0.25, height*0.8);    
+                    break;
+        
+                case("ron"):
+                    imageMode(CORNER);
+                    background(sprites.diagonAlley);                    
+                    imageMode(CENTER);
+                    image(sprites.hermione, width/2, height/2, width*0.30, height*0.8);
+                    image(sprites.harry, width/4, height/2, width*0.25, height*0.8);
+                    this.comeInEffect(sprites.ron, (width/4)*3, height/2, width*0.25, height*0.8); 
+                    break;
+
                 case("goblin"):   
                     imageMode(CORNER);
                     background(sprites.gringotts);                    
@@ -353,34 +377,6 @@ class SceneManager {
                     imageMode(CENTER);
                     this.comeInEffect(sprites.toad, width/2, height/2, width*0.30, height*0.4);
                     break;
-        }
-    }
-
-    manageTrioCharacters(order){
-        switch(order){
-            case("hermione"):
-                imageMode(CORNER);
-                background(sprites.diagonAlley);                    
-                imageMode(CENTER);
-                this.comeInEffect(sprites.hermione, width/2, height/2, width*0.30, height*0.8); 
-                break;
-        
-            case("harry"):
-                imageMode(CORNER);
-                background(sprites.diagonAlley);                    
-                imageMode(CENTER);
-                image(sprites.hermione, width/2, height/2, width*0.30, height*0.8);
-                this.comeInEffect(sprites.harry, width/4, height/2, width*0.25, height*0.8);    
-                break;
-
-            case("ron"):
-                imageMode(CORNER);
-                background(sprites.diagonAlley);                    
-                imageMode(CENTER);
-                image(sprites.hermione, width/2, height/2, width*0.30, height*0.8);
-                image(sprites.harry, width/4, height/2, width*0.25, height*0.8);
-                this.comeInEffect(sprites.ron, (width/4)*3, height/2, width*0.25, height*0.8); 
-                break;
         }
     }
 
