@@ -42,7 +42,7 @@ class SceneManager {
             // console.log(animalChosen, dialogArray[index].event);
             if(animalChosen && dialogArray[index].event == "animalChosen"){
                 let {cost, exclamation, animal} = animalChosen;
-                dialog = `${exclamation} It will be ${cost} for the ${animal}`;
+                dialog = `${exclamation} It will be ${cost} for the ${animal}!`;
 
                 textFont(magicFont);
                 textAlign(LEFT);
@@ -197,7 +197,7 @@ class SceneManager {
                     break;
                 
                 case("list"):
-                    this.fadeEffect(sprites.list0, width/2, height/2, width*0.40, height*0.95);
+                    this.fadeEffect(sprites.list, width/2, height/2, width*0.40, height*0.95);
                     if(!this.playHistory[index]){
                         this.playHistory[index] = true;
                         sounds.letterIn.play();

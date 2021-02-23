@@ -28,8 +28,6 @@ let sprites = {
     envelope: {},
     letter: {},
     dialogBox: {},
-
-    //0 is for empty, and every number represents the next location/stage 
     list: {},
 
     //locations
