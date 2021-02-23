@@ -11,7 +11,6 @@ let sounds = {
     flourishnblotts: {},
     gringotts: {},
     letterIn: {},
-    letterOut: {},
     measureFabric: {},
     measureWand: {},
     ollivanders_malkins: {},
@@ -31,12 +30,7 @@ let sprites = {
     dialogBox: {},
 
     //0 is for empty, and every number represents the next location/stage 
-    list0: {},
-    // list1: {},
-    // list2: {},
-    // list3: {},
-    // list4: {},
-    // list5: {},
+    list: {},
 
     //locations
     slugsnjiggers: {},
@@ -46,14 +40,6 @@ let sprites = {
     diagonAlley: {},
     gringotts: {},
     malkinsShop: {},
-
-    //signs
-    malkinsSign: {},
-    ollivandersSign: {},
-    slugsSign: {},
-    eyelopsSign: {},
-    flourishSign: {},
-    //gringottsSign: {},
 
     //characters
     eyelop: {},

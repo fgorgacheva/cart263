@@ -27,7 +27,7 @@ const dialogArray = [
     {speaker: "HERMIONE",   message: "We're second year students at Hogwarts, so we know how it can be to be here for the first time, we can show you around! Do you have your list with you?"},
     {speaker: "ME",         message: "Yes, here it is.", event: "letterIn"},
     {speaker: "HERMIONE",   message: "Right! Uniforms first. For all the things you need, you can go to Madam Malkin's Robes for All Occasions. She likes purple a lot, so you can tell which sign shows her shop!"},
-    {speaker: "HARRY",      message: "But wait! Have you got any Galleons? I didn't know the currency is different in the wizarding world either when I came here last year!", event: "letterOut"},
+    {speaker: "HARRY",      message: "But wait! Have you got any Galleons? I didn't know the currency is different in the wizarding world either when I came here last year!"},
     {speaker: "ME",         message: "Galleons? No I don't have any..."},
     {speaker: "HARRY",      message: "Then you should go to Grigotts first to get some, or you won't be able to buy anything. It's the big bank at the end of the street! "},
     {speaker: "RON",        message: "We've got some stuff to buy ourselves, but we'll help you out with your next stop once you're done getting your uniforms!"},

@@ -283,18 +283,9 @@ class SceneManager {
                         this.playHistory[index] = true;
                         sounds.letterIn.play();
                     }
-                    break;
-    
-                case("letterOut"):
-                    
-                    if(!this.playHistory[index]){
-                        this.playHistory[index] = true;
-                        sounds.letterOut.play();
-                    }
-                    break;          
+                    break;      
     
                 case("measureFabric"):
-                    
                     if(!this.playHistory[index]){
                         this.playHistory[index] = true;
                         sounds.measureFabric.play();
@@ -302,7 +293,6 @@ class SceneManager {
                     break;
     
                 case("measureWand"):
-                    
                     if(!this.playHistory[index]){
                         this.playHistory[index] = true;
                         sounds.measureWand.play();
@@ -322,7 +312,6 @@ class SceneManager {
                     break;
     
                 case("pay"):
-                    
                     if(!this.playHistory[index]){
                         this.playHistory[index] = true;
                         sounds.coin.play();
@@ -344,7 +333,6 @@ class SceneManager {
                     break;
                 
                 case("spell"):
-                    
                     if(!this.playHistory[index]){
                         this.playHistory[index] = true;
                         sounds.spell.play();
