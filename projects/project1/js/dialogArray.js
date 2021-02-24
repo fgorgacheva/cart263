@@ -31,14 +31,14 @@ const dialogArray = [
     {speaker: "ME",         message: "Galleons? No I don't have any..."},
     {speaker: "HARRY",      message: "Then you should go to Grigotts first to get some, or you won't be able to buy anything. It's the big bank at the end of the street! "},
     {speaker: "RON",        message: "We've got some stuff to buy ourselves, but we'll help you out with your next stop once you're done getting your uniforms!"},
-    {speaker: "HERMIONE",   message: "Oh and I've marked the name of the shop on your list in case you don't remember it! Good luck!"},
+    {speaker: "HERMIONE",   message: "Good luck!"},
     // 28
     {speaker: "ME",         message: "Madam Malkin's... Gringotts... This is crazy!", event: "diagonAlley"},
 
     //3 scene: 29-36 =================================================================================================================================================
     {setting: "gringotts"},
 
-    {speaker: "GRINGOTTS HEAD GOBLIN", message: "...."},
+    {speaker: "ME",                    message: "...."},
     {speaker: "ME",                    message: "Um.. Hi- Hello! I would like to retrieve some mone- Galleons? Galleons!"},
     {speaker: "GRINGOTTS HEAD GOBLIN", message: "You've got a key?", event: "goblin"},
     {speaker: "ME",                    message: "(A key?! OH! Grandma gave me a key and told me to keep it very safe, that I'd know when to use it! This must be it!)"},
