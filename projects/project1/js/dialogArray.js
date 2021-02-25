@@ -148,7 +148,7 @@ const dialogArray = [
     {speaker: "ME",            message: "S-sorry, sir..."},
     {speaker: "SEVERUS SNAPE", message: "I am the potions professor at Hogwarts. Perhaps I can help you find the material you will need. If you end up a Slytherin, I would prefer if you had quality material.."},
     {speaker: "ME",            message: "That's kind of you sir."},
-    {speaker: "SEVERUS SNAPE", message: "Here are the best crystal phials, cauldron, and brass scales this shop can offer. You best know your material very well before the year starts, young one. Slytherins may not embarass their house, and you may not want to be responsible for costing your house points."},
+    {speaker: "SEVERUS SNAPE", message: "Here are the best crystal phials, cauldron, and brass scales this shop can offer. You best know your material very well before the year starts. Slytherins may not embarass their house, and you may not want to be responsible for costing your house points."},
     {speaker: "ME",            message: "Yes, sir! I've got a question though..."},
     {speaker: "SEVERUS SNAPE", message: "What is it?"},
     {speaker: "ME",            message: "Thank you for helping me with my equipment, but I'm missing a telescope. I don't know where to find one..."},
@@ -171,11 +171,11 @@ const dialogArray = [
     {speaker: "HERMIONE", message: "By the way, do you have a magical pet? You're allowed to bring one!", event: "hermione"},
     {speaker: "ME",       message: "A magical pet? No, I don't have one."},
     {speaker: "HERMIONE", message: "It says so at the bottom of your list. You can pick an owl, a cat or a toad! I have a cat named Crookshanks!"},
-    {speaker: "HARRY",    message: "Hagrid, the gamekeeper at Hogwarts gifted me Hedwig. She's a snowy owl."},
-    {speaker: "RON",      message: "I've got Scabbers... It's a rat, I know it's not one of the three, but he's been with the Weasleys for a while, so the school allowed it."},
+    {speaker: "HARRY",    message: "Hagrid, the gamekeeper at Hogwarts gifted me Hedwig. She's a snowy owl.", event: "harry"},
+    {speaker: "RON",      message: "I've got Scabbers... It's a rat, I know it's not one of the three, but he's been with the Weasleys for a while, so the school allowed it.", event: "ron"},
     {speaker: "ME",       message: "It's hard to pick one. But where should I go to get a pet like that? "},
     {speaker: "HERMIONE", message: "At Eyelop's Owl Emporium and Magical Menagerie! It's right down on your left. Let me mark it on your list~"},
-    {speaker: "RON",      message: "I hope you don't get a cat, or scabbers will have a heart attack. He's got enough of Crookshanks... "},
+    {speaker: "RON",      message: "I hope you don't get a cat, or Scabbers will have a heart attack. He's got enough of Crookshanks... "},
     // 135
     {speaker: "ME",       message: "But cats are so soft...!", setting: "diagonAlley"},
 
@@ -201,7 +201,7 @@ const dialogArray = [
 
     // 148-149
     {speaker: "ME",     message: "This is my very first pet and I'm excited to love him every day! I shall call him Squishy, and he shall be mine! He shall be my Squishy!", event: "pay"},
-    {speaker: "EYELOP", message: "May you loyal to each other! Animals are very precious!"},
+    {speaker: "EYELOP", message: "May you be loyal to each other! Animals are very precious!"},
     
     //14 scene: 150-151 =================================================================================================================================================
     {setting: "diagonAlley", event: "bell"},
@@ -220,8 +220,8 @@ const dialogArray = [
     {speaker: "HERMIONE", message: "We just finished getting all of our stuff as well! "},
     {speaker: "RON",      message: "You seem to have some Galleons left! You could visit Florean Fortescue's Ice Cream Parlour For some of the best ice cream around. Or you can check out Gambol and Japes Wizarding Joke Shop! There's tons of funny trinkets there for jokes and pranks. My brothers Fred and George even see it as a mandatory supply shop for school!", event: "ron"},
     {speaker: "HERMIONE", message: "Don't you dare pull any pranks if you end up in Gryffindor or you'll lose all the points I work hard for. We've already got two much on our hands with Fred and George! "},
-    {speaker: "HARRY",    message: "Well pranksters or not, we still love them! "},
-    {speaker: "HERMIONE", message: "Alright, that's true..."},
+    {speaker: "HARRY",    message: "Well pranksters or not, they're still pretty great! "},
+    {speaker: "HERMIONE", message: "You're right..."},
     {speaker: "HERMIONE", message: "Anyway, we're really glad to have been able to help you out! I hope to see you around once school starts! Have a great summer! "},
     // 163
     {speaker: "RON",      message: "By the way, my little sister, Ginny, is also starting at Hogwarts this year. If you end up in Gryffindor, you could be each other's first friends. It's always nice to have a friendly face around when you start something big like this! Anyway, it was nice meeting you!", event: "onlyRon"},
