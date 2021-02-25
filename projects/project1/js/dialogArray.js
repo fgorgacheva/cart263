@@ -27,7 +27,7 @@ const dialogArray = [
     {speaker: "HERMIONE",   message: "We're second year students at Hogwarts, so we know how it can be to be here for the first time, we can show you around! Do you have your list with you?"},
     {speaker: "ME",         message: "Yes, here it is.", event: "letterIn"},
     {speaker: "HERMIONE",   message: "Right! Uniforms first. For all the things you need, you can go to Madam Malkin's Robes for All Occasions. She likes purple a lot, so you can tell which sign shows her shop!"},
-    {speaker: "HARRY",      message: "But wait! Have you got any Galleons? I didn't know the currency is different in the wizarding world either when I came here last year!"},
+    {speaker: "HARRY",      message: "But wait! Have you got any wizarding currency? I didn't know the currency is different in the here world either when I got here for the first time! You've got bronze knuts, silver sickles and golden galleons."},
     {speaker: "ME",         message: "Galleons? No I don't have any..."},
     {speaker: "HARRY",      message: "Then you should go to Grigotts first to get some, or you won't be able to buy anything. It's the big bank at the end of the street! "},
     {speaker: "RON",        message: "We've got some stuff to buy ourselves, but we'll help you out with your next stop once you're done getting your uniforms!"},
@@ -39,8 +39,8 @@ const dialogArray = [
     {setting: "gringotts"},
 
     {speaker: "ME",                    message: "...."},
-    {speaker: "ME",                    message: "Um.. Hi- Hello! I would like to retrieve some mone- Galleons? Galleons!"},
-    {speaker: "GRINGOTTS HEAD GOBLIN", message: "You've got a key?", event: "goblin"},
+    {speaker: "ME",                    message: "Um.. Hi- Hello! I would like to retrieve some money!"},
+    {speaker: "GRINGOTTS HEAD GOBLIN", message: "Money? You've got a key?", event: "goblin"},
     {speaker: "ME",                    message: "(A key?! OH! Grandma gave me a key and told me to keep it very safe, that I'd know when to use it! This must be it!)"},
     {speaker: "ME",                    message: "I have a key! Here it is, sir!"},
     {speaker: "GRINGOTTS HEAD GOBLIN", message: "Mmh... Take what you need from your vault."},
@@ -59,7 +59,7 @@ const dialogArray = [
     {speaker: "ME",           message: "Hello! I'm here to get everything that is on this list!", event: "letterIn"},
     {speaker: "MADAM MALKIN", message: "Oh~ A first year, are we? How exciting! Hop on here, dear, I will take your measurements and prepare everything for you!"},
     {speaker: "MADAM MALKIN", message: "Alrighty then~ ", event: "measureFabric"},
-    {speaker: "MADAM MALKIN", message: "You're all done, dear! Here is everything you need! That'll be 300 Galleons!"},
+    {speaker: "MADAM MALKIN", message: "You're all done, dear! Here is everything you need! That'll be 20 golden galleons!"},
     {speaker: "ME",           message: "Here you go!", event: "pay"},
     {speaker: "MADAM MALKIN", message: "Thank you, dear! I hope you have an amazing school year ahead of you!"},
 
@@ -87,14 +87,14 @@ const dialogArray = [
     {speaker: "ME",                 message: "Well... It's alright, I can't really afford to get that at the moment."},
     {speaker: "GILDEROY LOCKHEART", message: "You really don't want this once in a lifetime offer from the famous GILDEROY LOCKHEART?!"},
     {speaker: "ME",                 message: "Like I said, I'm not from around here. I'm afraid I haven't heard of you, sir.."},
-    {speaker: "GILDEROY LOCKHEART", message: "Well... You will in good time! These 8 books then? That'll be 200 Galleons!"},
+    {speaker: "GILDEROY LOCKHEART", message: "Well... You will in good time! These 8 books then? That'll be 70 sickles!"},
     {speaker: "ME",                 message: "Here. Thank you, sir.", event: "pay"},
     {speaker: "GILDEROY LOCKHEART", message: "Alright then! I will see you around the school!"},
 
     //8 scene: 69-70 =================================================================================================================================================
     {setting: "diagonAlley", event: "bell"},
     
-    {speaker: "ME",       message: "Isn't he a handfull... Thank god he won't be my professor this year..."},
+    {speaker: "ME",       message: "Isn't he a handfull... Thankfully he won't be my professor this year..."},
     // 71-77
     {speaker: "RON",      message: "You're alive!!", event: "ron"},
     {speaker: "HERMIONE", message: "You've got all your books! There are so many, right?" , event: "hermione"},
@@ -117,7 +117,7 @@ const dialogArray = [
     {speaker: "OLLIVANDER", message: "Try this one. Beechwood and dragon heartstrings. Nine inches. Nice and flexible. Just take it out and give it a wave.", event: "box"},
     {speaker: "OLLIVANDER", message: "NOT THIS ONE. Try that one. Maple and phoenix feather, seven inches, quite whippy, try-" , event: "box"},
     {speaker: "OLLIVANDER", message: "NO, NO! Alright, here... Ebony, unicorn hair, eight and a half inches, springy. Go on, go on! Try!", event: "box"},
-    {speaker: "OLLIVANDER", message: "This seems to be the one! The wand chooses the wizard, remember that! It'll be 90 Galleons! ", event: "spell"},
+    {speaker: "OLLIVANDER", message: "This seems to be the one! The wand chooses the wizard, remember that! It'll be 7 galleons! ", event: "spell"},
     {speaker: "ME",         message: "Thank you so very much sir!", event: "pay"},
     {speaker: "OLLIVANDER", message: "We shall expect great things from you! Enjoy your beautiful wand!"},
 
@@ -154,7 +154,7 @@ const dialogArray = [
     {speaker: "ME",            message: "Thank you for helping me with my equipment, but I'm missing a telescope. I don't know where to find one..."},
     {speaker: "SEVERUS SNAPE", message: "This is the one they sell here, but it's not the best. However, I am not your astronomy professor, so I don't care. "},
     {speaker: "ME",            message: "Thank you, sir."},
-    {speaker: "SEVERUS SNAPE", message: "Is that all for you? That's 150 Galleons."},
+    {speaker: "SEVERUS SNAPE", message: "Is that all for you? That's 10 galleons."},
     {speaker: "ME",            message: "It was kind of you to help me sir, thank you.", event: "pay"},
     {speaker: "SEVERUS SNAPE", message: "This better not have been a waste of my precious time. I expect no less than a perfect score from you."},
 

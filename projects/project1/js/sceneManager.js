@@ -371,7 +371,7 @@ class SceneManager {
     animalChoice(animal){      
         switch(animal){
             case("owl"):
-                animalChosen = {exclamation: "Great choice!", cost: "190", animal};
+                animalChosen = {exclamation: "Great choice!", cost: "5 galleons", animal};
                 document.getElementById("buttons").style.display = "none";
                 dialogArray[153].message = "An owl!";
                 dialogArray[153].event = "owl";
@@ -382,7 +382,7 @@ class SceneManager {
                 break;
                 
                 case("cat"):
-                animalChosen = {exclamation: "Amazing choice!", cost: "120", animal};
+                animalChosen = {exclamation: "Amazing choice!", cost: "3 galleons", animal};
                 document.getElementById("buttons").style.display = "none";
                 dialogArray[153].message = "A cat!";
                 dialogArray[153].event = "cat";
@@ -392,7 +392,7 @@ class SceneManager {
                 break;
 
             case("toad"):
-                animalChosen = {exclamation: "To each their own!", cost: "30", animal};
+                animalChosen = {exclamation: "To each their own!", cost: "30 knuts", animal};
                 document.getElementById("buttons").style.display = "none";
                 dialogArray[153].message = "A toad!";
                 dialogArray[153].event = "toad";
