@@ -1,11 +1,11 @@
 "use strict";
 
 function createImageSrc(imgName){
-    return "../assets/images/" + imgName + ".png";
+    return "./assets/images/" + imgName + ".png";
 }
 
 function createSound(soundName){
-    return "../assets/sounds/" + soundName + ".mp3";
+    return "./assets/sounds/" + soundName + ".mp3";
 }
 
 
@@ -23,8 +23,8 @@ function preload() {
     });
     
     //load fonts
-    magicFont = loadFont('../assets/fonts/HogwartsFont.TTF')
-    schoolFont = loadFont('../assets/fonts/Schoolbook.otf');
+    magicFont = loadFont('./assets/fonts/HogwartsFont.TTF')
+    schoolFont = loadFont('./assets/fonts/Schoolbook.otf');
     
 }
 
