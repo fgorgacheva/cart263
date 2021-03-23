@@ -6,12 +6,12 @@
 
 //instantiates/loads an image (arg) as a p5 image 
 function createImageSrc(imgName){
-    return "../assets/images/" + imgName + ".png";
+    return "./assets/images/" + imgName + ".png";
 }
 
 //instantiates/loads a sound (arg) to p5 object
 function createSound(soundName){
-    return "../assets/sounds/" + soundName + ".mp3";
+    return "./assets/sounds/" + soundName + ".mp3";
 }
 
 
@@ -29,7 +29,7 @@ function preload() {
     });
     
     //load fonts
-    hogwartsFont = loadFont('../assets/fonts/HogwartsFont.TTF');
-    schoolFont = loadFont('../assets/fonts/Schoolbook.otf');
+    hogwartsFont = loadFont('./assets/fonts/HogwartsFont.TTF');
+    schoolFont = loadFont('./assets/fonts/Schoolbook.otf');
     
 }
