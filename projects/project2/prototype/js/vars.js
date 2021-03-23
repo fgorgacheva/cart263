@@ -44,6 +44,7 @@ let sprites = {
     mcgonagall: {}
 }
 
+let isDoneLoading;
 let sceneManager;
 let index;
 let subindex;

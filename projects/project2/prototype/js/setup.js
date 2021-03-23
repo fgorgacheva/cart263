@@ -8,6 +8,8 @@
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
+    isDoneLoading = false;
+
     index = -1;
     subindex = 0;
 
@@ -17,9 +19,9 @@ function setup() {
     document.getElementById("loadingText").style.display = "none";
     document.getElementById("continue").style.display = "block";
 
-    //ndictes in console when everything is loaded and app is ready to start
+    //indictes in console when everything is loaded and app is ready to start
     console.log("DONE");
-
+    isDoneLoading = true;
 
     let options = ["Slytherin", "Gryffindor", "Hufflepuff", "Ravenclaw"];
 

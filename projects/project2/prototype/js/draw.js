@@ -10,6 +10,8 @@ function draw() {
 }
 
 function mouseClicked(){
-    document.getElementById("textBox").style.display = "none";
-    sceneManager.onClick();
+    if(isDoneLoading){
+        document.getElementById("textBox").style.display = "none";
+        sceneManager.onClick();
+    }
 }
