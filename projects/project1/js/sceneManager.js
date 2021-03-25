@@ -401,8 +401,7 @@ class SceneManager {
                 dialogArray[155].message = "Neville Longbottom has a toad, too! His name's Trevor, but Neville somehow always manages to lose him...";
                 break;
         }
-        index++;
-        
+        index++; 
     }
 
     fadeEffect(img, x, y, w, h){

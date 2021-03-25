@@ -4,8 +4,6 @@
 // draw()
 //
 function draw() {
-
-
     if(dialogArray[index]){
         sceneManager.loadSetting(dialogArray[index].setting);
         sceneManager.eventTrigger(dialogArray[index].event);
