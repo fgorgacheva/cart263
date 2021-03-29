@@ -48,6 +48,9 @@ function setup() {
         annyang.start();
     }
 
+    
+    // themeSong.setVolume(0.05);
+    themeSong.play();
 }
 
 // draw()
@@ -91,8 +94,6 @@ function mousePressed() {
 function keyTyped(){
     if(keyCode === 32 && gameState === 0){
         gameState = 1;
-        themeSong.setVolume(0.05);
-        themeSong.play();
     }
     return false;
 }
