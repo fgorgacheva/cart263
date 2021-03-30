@@ -34,9 +34,9 @@ function preload() {
     colors = loadJSON('https://raw.githubusercontent.com/dariusk/corpora/master/data/colors/crayola.json');
     cape = ['yes', 'no'];
 
-    backgroundImg = loadImage('../assets/images/background.png');
-    accessDenied = loadSound('../assets/sounds/access-denied.mp3');
-    accessGranted = loadSound('../assets/sounds/access-granted.mp3');
+    backgroundImg = loadImage('./assets/images/background.png');
+    accessDenied = loadSound('./assets/sounds/access-denied.mp3');
+    accessGranted = loadSound('./assets/sounds/access-granted.mp3');
 }
 
 // setup()
@@ -49,10 +49,10 @@ function setup() {
     if(data){
         let password = prompt('Hero!! What is your password?');
 
-        // while(password != data.password){
-        //     password = prompt('Wrong password! Try again!');
-        //     // accessDenied.play();
-        // }
+        while(password != data.password){
+            password = prompt('Wrong password! Try again!');
+            // accessDenied.play();
+        }
         
         if(password === data.password){
             spyProfile = data;
