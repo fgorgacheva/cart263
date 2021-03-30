@@ -35,8 +35,8 @@ function preload() {
     cape = ['yes', 'no'];
 
     backgroundImg = loadImage('./assets/images/background.png');
-    accessDenied = loadSound('./assets/sounds/access-denied.mp3');
-    accessGranted = loadSound('./assets/sounds/access-granted.mp3');
+    // accessDenied = loadSound('./assets/sounds/access-denied.mp3');
+    // accessGranted = loadSound('./assets/sounds/access-granted.mp3');
 }
 
 // setup()
