@@ -49,7 +49,7 @@ function setup() {
     }
 
     
-    // themeSong.setVolume(0.05);
+    themeSong.setVolume(0.05); 
     themeSong.play();
 }
 
