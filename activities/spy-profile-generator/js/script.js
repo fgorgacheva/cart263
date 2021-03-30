@@ -43,15 +43,16 @@ function preload() {
 //
 function setup() {
     createCanvas(windowWidth, windowHeight);  
+    document.getElementById("deleteBtn").style.visibility = "hidden !important";
 
     let data = JSON.parse(localStorage.getItem('spy-profile-data'));
     if(data){
         let password = prompt('Hero!! What is your password?');
 
-        while(password != data.password){
-            password = prompt('Wrong password! Try again!');
-            // accessDenied.play();
-        }
+        // while(password != data.password){
+        //     password = prompt('Wrong password! Try again!');
+        //     // accessDenied.play();
+        // }
         
         if(password === data.password){
             spyProfile = data;
@@ -68,8 +69,9 @@ function setup() {
 //
 function draw() {
     background(backgroundImg);
-   
+    document.getElementById("deleteBtn").style.visibility = "visible !important";
+    document.getElementById("deleteBtn").addEventListener("click", Utilities.deleteProfile);
     Utilities.displayInformation();
 
-    document.getElementById("deleteBtn").addEventListener("click", Utilities.deleteProfile);
+    
 }
