@@ -6,16 +6,24 @@ generates a spy profile with alias weapon and password based on provided user na
 **************************************************/
 "use strict";
 
+let backgroundImg;
+let accessGranted;
+let accessDenied;
+
 let spyProfile = {
     name: '*REDACTED*',
     alias: '*REDACTED*',
     secretWeapon: '*REDACTED*',
+    colors: '*REDACTED*',
+    cape: '*REDACTED*',
     password:'*REDACTED*'
 };
 
 let instrumentData;
 let objectData;
 let tarotData;
+let colors;
+let cape;
 
 // preload()
 //
@@ -23,7 +31,12 @@ function preload() {
     instrumentData = loadJSON('https://raw.githubusercontent.com/dariusk/corpora/master/data/music/instruments.json');
     objectData = loadJSON('https://raw.githubusercontent.com/dariusk/corpora/master/data/objects/objects.json');
     tarotData = loadJSON('https://raw.githubusercontent.com/dariusk/corpora/master/data/divination/tarot_interpretations.json');
+    colors = loadJSON('https://raw.githubusercontent.com/dariusk/corpora/master/data/colors/crayola.json');
+    cape = ['yes', 'no'];
 
+    backgroundImg = loadImage('../assets/images/background.png');
+    accessDenied = loadSound('../assets/sounds/access-denied.mp3');
+    accessGranted = loadSound('../assets/sounds/access-granted.mp3');
 }
 
 // setup()
@@ -33,13 +46,20 @@ function setup() {
 
     let data = JSON.parse(localStorage.getItem('spy-profile-data'));
     if(data){
-        let password = prompt('Agent! What is your password?');
+        let password = prompt('Hero!! What is your password?');
+
+        while(password != data.password){
+            password = prompt('Wrong password! Try again!');
+            accessDenied.play();
+        }
+        
         if(password === data.password){
             spyProfile = data;
+            accessGranted.play();
         }
     }
     else{
-        generateSpyProfile();
+        Utilities.generateSpyProfile();
     }
 
 }
@@ -47,36 +67,9 @@ function setup() {
 // draw()
 //
 function draw() {
-    background(0);
+    background(backgroundImg);
+   
+    Utilities.displayInformation();
 
-    let profile = `** CONFIDENTIAL! DO NOT DISTRIBUTE! **
-
-Name: ${spyProfile.name}
-Alias: ${spyProfile.alias}
-Secret Weapon: ${spyProfile.secretWeapon}
-Password: ${spyProfile.password}`;
-
-    push();
-    textFont('Courier, monospace');
-    textSize(24);
-    textAlign(TOP, LEFT);
-    fill(255);
-    text(profile, 100, 100);
-    pop();
-}
-
-//=====================================================================================
-
-function generateSpyProfile() {
-    //ask for input
-    spyProfile.name = prompt('Agent! What is your name?');
-
-    //generatet the info
-    spyProfile.alias = `The ${random(instrumentData.instruments)}`;
-    spyProfile.secretWeapon = random(objectData.objects);
-    let card = random(tarotData.tarot_interpretations);
-    spyProfile.password = random(card.keywords);
-
-    //save the info
-    localStorage.setItem('spy-profile-data', JSON.stringify(spyProfile));
+    document.getElementById("deleteBtn").addEventListener("click", Utilities.deleteProfile);
 }
