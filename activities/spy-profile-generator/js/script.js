@@ -50,12 +50,12 @@ function setup() {
 
         while(password != data.password){
             password = prompt('Wrong password! Try again!');
-            accessDenied.play();
+            // accessDenied.play();
         }
         
         if(password === data.password){
             spyProfile = data;
-            accessGranted.play();
+            // accessGranted.play();
         }
     }
     else{
