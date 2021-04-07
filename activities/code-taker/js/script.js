@@ -34,7 +34,7 @@ $(document).ready(() => {
     $('#solved-dialog').dialog({
         autoOpen: false,
         buttons: {
-          "I know": function() {
+          "Because I'm Batman": function() {
             $(this).dialog('close');
           }
         }
