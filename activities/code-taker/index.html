@@ -9,7 +9,7 @@
 
   <!-- CSS stylesheet(s) -->
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/mint-choc/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/vader/jquery-ui.css">
 
   <!-- Library script(s) -->
   <script src="js/libraries/p5.min.js"></script>
@@ -26,31 +26,45 @@
 
 <body>
   <!-- The poem, secret letters are in spans with class "secret" -->
-  <section id="poem">
-    <h2><span class="secret">T</span>his Is Just To Say</h2>
-    <p>
-      I <span class="secret">h</span>ave eaten<br />
-      the plums<br />
-      that wer<span class="secret">e</span> in<br />
-      the icebox
-    </p>
-    <p>
-      and which<br />
-      you we<span class="secret">r</span>e probably<br />
-      saving<br />
-      for br<span class="secret">e</span>akfast
-    </p>
-    <p>
-      Forgive <span class="secret">m</span>e<br />
-      they were del<span class="secret">i</span>cious<br />
-      so sweet<br />
-      a<span class="secret">n</span>d so cold
-    </p>
-    <h4>William Carlos Williams</h4>
-  </section>
+  <div class="content center">
 
-  <!-- The secret answer area-->
-  <section id="answer"></section>
+    <div id="instructions">
+      <p>
+        There's a message on the wall, but it contains a secret message. <br>
+        Hover your mouse over the message to reveal the letters <br>
+        that compose the secret message and drag them in the box. <br>
+        Once you're ready, click to continue. <br>
+        Good luck!
+      </p>
+    </div>
+
+    <div id="code">
+      <section id="poem">
+        <p>
+          They told me there was noth<span class="s1">i</span>ng out there, 
+          nothing to fe<span class="s2">a</span>r. <span class="s4">B</span>ut the night my parents
+          were <span class="s3">m</span>urdered I caught <span class="s5">a</span> glimpse of something. 
+          I’ve looked for i<span class="s6">t</span> ever since. I went around 
+          the world, searched in all the shadows. And there 
+          is so<span class="s7">m</span>ething out there in the d<span class="s8">a</span>rkness, something 
+          terrifying, something that will <span class="s9">n</span>ot stop until 
+          it gets revenge… <br>
+          Me.
+        </p>
+        <h4>Bruce Wayne</h4>
+      </section>
+
+      <!-- The secret answer area-->
+      <section id="answer"></section>
+    </div>
+
+    <!-- The dialog to pop up when they get it right -->
+    <div id="solved-dialog" title="...">
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Why so serious ..?!</a>
+    </div>
+
+  </div>
 </body>
 
 </html>
+

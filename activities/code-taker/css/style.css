@@ -1,13 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
 body {
+  background-color: black;
   padding: 0;
   margin: 0;
 }
 
+.center{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+}
+
+.content{
+  width: 100vw;
+  height: 100vh;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+#instructions{
+  color: yellow;
+  font-family: 'Bangers', cursive;
+  line-height: 2em;
+}
+
+#code{
+  display: none;
+  width: 100vw;
+  height: 100vh; 
+  padding: 0;
+  margin: 0;
+  background-image: url("../assets/images/backgound.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'Nanum Brush Script', cursive;
+}
+
 #answer {
-  height: 2rem;
+  height: 4rem;
   width: 15rem;
-  margin: 10%;
+  margin-left: 12vw;
+  margin-top: 75vh;
   border: 1px dashed black;
+  font-family: 'Rock Salt', cursive;
+  text-align: center;
 }
 
 .found{
@@ -15,7 +57,9 @@ body {
 }
 
 #poem{
-  font-size: 1.5rem;
-  margin: 10%;
-  
+  font-size: 2rem;
+  margin-left: 12vw;
+  margin-top: 20vh;
+  position: absolute;
+  width: 30vw;
 }
