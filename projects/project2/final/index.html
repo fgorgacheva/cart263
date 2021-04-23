@@ -15,12 +15,72 @@
   <script src="js/libraries/p5.sound.min.js"></script>
 
   <!-- My script(s) -->
+  <script src="js/libraries/jQuery.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/preload.js"></script>
+  <script src="js/setup.js"></script>
+  <script src="js/vars.js"></script>
+  <script src="js/dialog.js"></script>
+  
+  <script src="js/scene.js"></script>
+  <script src="js/sceneManager.js"></script>
+  <script src="js/questionnaire.js"></script>
+  
+  <script src="js/draw.js"></script>
 
 </head>
 
 <body>
-  <!-- HTML would go here if needed. -->
+  <div id="textBox">
+    <p id="loadingText">Loading...</p>
+    <!-- <a id="continue">Click to Start</a> -->
+
+  <div id="getNameContainer">
+    <label for="name">What is your name?</label> <br>
+    <input type="text" id="userName" name="userName"> <br>
+    <p id="errorMsg"></p>
+    <button id="nameSubmitBtn">Submit</button>
+  </div>
+
+    <p id="replay">If you'd like to play again, refresh this page!</p>
+  </div>
+
+  <div class="questionnaire" id="q1">
+    <button class = "next" >Cheesecake</button>
+    <button class = "next" >Mint Ice Cream</button>
+    <button class = "next" >Egg Tarts</button>
+    <button class = "next" >Baklava</button>
+  </div>
+
+  <div class="questionnaire" id="q2">
+    <button class = "next" >Satanic Leaf</button>
+    <button class = "next" >Hellbender</button>
+    <button class = "next" >Leafy Sea Dragon</button>
+    <button class = "next" >Strange-Tailed Tyrant</button>
+  </div>
+
+  <div class="questionnaire" id="q3">
+    <button class = "next" >Rye</button>
+    <button class = "next" >Whole Grain</button>
+    <button class = "next" >Sourdough</button>
+    <button class = "next" >Brioche</button>
+  </div>
+
+  <div class="questionnaire" id="q4">
+    <button class = "next" >Mug</button>
+    <button class = "next" >Plate</button>
+    <button class = "next" >Bowl</button>
+    <button class = "next" >Ramekin</button>
+  </div>
+
+  <div class="questionnaire" id="q5">
+    <button class = "next" >Cumulonimbus</button>
+    <button class = "next" >Altostratus</button>
+    <button class = "next" >Cumulus</button>
+    <button class = "next" >Cirrus</button>
+  </div>
+
+
 </body>
 
 </html>
