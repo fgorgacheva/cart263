@@ -38,13 +38,14 @@ body {
 #continue:hover, #replay:hover{
   text-shadow: 0 0 50px #fcd703;
 }
-#buttons {
+
+.questionnaire {
   position: absolute;
   display: none;
   text-decoration: none;
 }
 
-#buttons button, #nameSubmitBtn{  
+.questionnaire button, #nameSubmitBtn{  
   font-family: 'HogwartsFont';
   font-size: 40px;
   color: white;
@@ -102,5 +103,9 @@ main {
 }
 
 .questionnaire{
+  display: none;
+}
+
+#scheduleBtns{
   display: none;
 }

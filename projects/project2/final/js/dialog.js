@@ -8,8 +8,8 @@ let hufflepuffDialog;
 function initDialog(username){
     commonDialog = [
         //1 scene: =================================================================================================================================================
-        {scene:   "beginning",     char:    "mcgonagall"},
-        {speaker: "ME",            message: "I cannot believe I am finally here! Hogwarts doesn't look like anything I've ever seen!"},
+        {scene:   "beginning",                char:    "mcgonagall"},
+        {speaker: "ME",                       message: "I cannot believe I am finally here! Hogwarts doesn't look like anything I've ever seen!"},
         {speaker: "MINERVA MCGONAGALL",       message: "Welcome to Hogwarts!", event: "appear"},
         {speaker: "MINERVA MCGONAGALL",       message: "Before the banquet begins, you must all first be sorted into your Hogwarts House. Once you are called, come forward and I shall place the sorting hat on your head."},
         //say name entered earlier
@@ -18,7 +18,7 @@ function initDialog(username){
         {event: "transition"},
 
         //inter
-        {scene:   "calling",      char:    "mcgonagall"},
+        {scene:   "calling",                  char:    "mcgonagall"},
         {speaker: "MINERVA MCGONAGALL",       message: "Alright now, children. Form a line and when I call you, please step forward.", event: "appear"},
         {speaker: "MINERVA MCGONAGALL",       message: username + "!"}, {},
         {speaker: "MINERVA MCGONAGALL",       message: "Sit here."},
@@ -60,9 +60,9 @@ function initDialog(username){
         {event: "transition"},
 
         //6 scene : =================================================================================================================================================
-        {scene: "classHallway"},
+        {scene:   "classes"},
         {speaker: "ME",            message: "Today is the very first day in this new life! I've got classes to take about magical stuff and ... magic!"},
-        {speaker: "ME",            message: "Let's see here.. What do I have for today? "},
+        {speaker: "ME",            message: "Let's see here.. What classes do I have for today?", event: "schedule"},
 
         {event: "loadMiniGameMenu"},
 

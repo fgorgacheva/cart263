@@ -1,5 +1,5 @@
 /**************************************************
-contains basic logic for retrriving input
+contains basic logic 
 **************************************************/
 "use strict";
 

@@ -13,7 +13,8 @@
         this.scenes.Slytherin  = new Scene(sprites.greatHall, "DRACO MALFOY",       sounds.slytherin,  sprites.malfoy,       slytherinDialog);
         this.scenes.Hufflepuff = new Scene(sprites.greatHall, "CEDRIC DIGGORY",     sounds.hufflepuff, sprites.cedric,       hufflepuffDialog);
         this.scenes.feast      = new Scene(sprites.greatHall, "ALBUS DUMBLEDORE",   sounds.greatHall,  sprites.dumbledore);
-        this.scenes.end        = new Scene(sprites.banquet,   "ME");
+        this.scenes.night      = new Scene(sprites.banquet,   "ME");
+        this.scenes.classes    = new Scene(sprites.hallway,   "ME",                 sounds.ambience);
 
 
         this.currentScene = "beginning";
@@ -31,11 +32,6 @@
             if(commonDialog[index].scene != "end" && commonDialog[index].scene != "ceremony"){
                 this.scenes[this.currentScene]?.unload();
             }
-            if(commonDialog[index].scene === "plotTwist"){
-                this.scenes["feast"]?.unload();
-            }
-            
-
             this.currentScene = commonDialog[index].scene;
         }
 
@@ -45,6 +41,9 @@
         }
         if(commonDialog[index].event === "getHouse"){
             this.questionnaire.setHouse();
+        }
+        if(commonDialog[index].event === ""){
+            
         }
 
         //if we reach the point where the path starts, run this 

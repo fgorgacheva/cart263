@@ -12,20 +12,14 @@ let sounds = {
     hufflepuff: {},
     gryffindor: {},
     slytherin: {},
-    plottwist: {}
+    ambience: {}
 };
 
 
 //array containing all images
 let sprites = {
+    
     dialogBox: {},
-    hat: {},
-
-    //crests
-    slytherin: {},
-    hufflepuff: {},
-    gryffindor: {},
-    ravenclaw: {},
 
     //locations
     greatHall: {},
@@ -33,15 +27,33 @@ let sprites = {
     stairs: {},
     banquet: {},
     ceremony: {},
-    plottwist: {},
+    hallway: {},
 
     //characters
+    hat: {},
     cedric: {},
     dumbledore: {},
     ginny: {},
     luna: {},
     malfoy: {},
-    mcgonagall: {}
+    mcgonagall: {},
+    hooch: {},
+    flitwick: {},
+    snape: {},
+
+    //classes
+    flying: {},
+    flyin2: {},
+    broom: {},
+    charms: {},
+    feather: {},
+    potions: {},
+    potions2: {},
+    batwing: {},
+    mushroom: {},
+    mandrake: {},
+    cauldron: {}
+
 }
 
 let isDoneLoading;
