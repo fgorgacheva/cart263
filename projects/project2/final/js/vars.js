@@ -55,5 +55,6 @@ let nameIsVerified;
 
 let hogwartsFont;
 let schoolFont;
+let house;
 
 

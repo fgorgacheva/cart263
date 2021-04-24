@@ -2,7 +2,7 @@
  * A scene object will contain all the information about a scene (background, character, music/sound) and contains the methods that will lay out/draw these images appropriately
  */
 
-class Scene {
+ class Scene {
 
     //takes the elements that form this scene
     constructor(background, speaker, sound, character, path, playSound = true){

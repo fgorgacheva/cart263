@@ -23,23 +23,19 @@ class Questionnaire {
             $(".questionnaire").hide();
             
             let qID = commonDialog[index].question;
-            console.log("hell ", qID);
             $("#" + qID).css('display', 'flex');
         }
 
     }
 
     getHouse(){
-        
         let houses = ["Slytherin", "Hufflepuff", "Gryffindor", "Ravenclaw"];
+        let pick = houses[Math.floor(Math.random()*3)];
+        return pick;
+    }
 
-        this.result = houses[Math.floor(Math.random()*3)];
-        
-        // if(this.result){
-        //     $("#buttons").hide();
-        //     index++;
-            
-        // }
+    setHouse(){
+        this.result = this.getHouse();
     }
     
 

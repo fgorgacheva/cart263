@@ -2,7 +2,7 @@
  * Takes care of managing all scenes and dialog
  */
 
-class SceneManager {    
+ class SceneManager {    
     constructor(){
         this.scenes = {};
         this.scenes.beginning  = new Scene(sprites.stairs,    "MINERVA MCGONAGALL", sounds.greatHall,  sprites.mcgonagall);
@@ -19,6 +19,7 @@ class SceneManager {
         this.currentScene = "beginning";
 
         this.questionnaire = new Questionnaire();
+        house = this.questionnaire.getHouse();
         this.isInPath = false; //checks if we are in path or not, to know to pause or resume the main story increment or increment the path index
     }
 
@@ -38,12 +39,12 @@ class SceneManager {
             this.currentScene = commonDialog[index].scene;
         }
 
-        //if storyline reaches the question part, display the choices/buttons to the user to make a choice
+        //if storyline reaches the question part, display the sorting quiz
         if(commonDialog[index].event === "pick"){
             this.questionnaire.displayButtons();
         }
         if(commonDialog[index].event === "getHouse"){
-            this.questionnaire.getHouse();
+            this.questionnaire.setHouse();
         }
 
         //if we reach the point where the path starts, run this 
@@ -84,13 +85,18 @@ class SceneManager {
             this.displayText(commonDialog[index].speaker, commonDialog[index].message);
         }
 
+        if(commonDialog[index].event === "transition"){
+            console.log(index);
+            background(0);
+        }
+        
+
     }
 
     //will detect if the user clicked to continue the text or clicked on a button
     onClick(){
         
         if(userName && nameIsVerified && commonDialog[index].event !== "pick"){
-            console.log("incremented", index);
             if(this.isInPath){
                 subindex++;
             }

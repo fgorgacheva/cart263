@@ -15,12 +15,15 @@ function initDialog(username){
         //say name entered earlier
         // {speaker: "MINERVA MCGONAGALL",       message: ""},
     
-    
+        {event: "transition"},
+
         //inter
         {scene:   "calling",      char:    "mcgonagall"},
         {speaker: "MINERVA MCGONAGALL",       message: "Alright now, children. Form a line and when I call you, please step forward.", event: "appear"},
         {speaker: "MINERVA MCGONAGALL",       message: username + "!"}, {},
         {speaker: "MINERVA MCGONAGALL",       message: "Sit here."},
+        
+        
 
         //2 scene: =================================================================================================================================================
         {scene:   "ceremony",      char:    "hat"},
@@ -29,16 +32,15 @@ function initDialog(username){
     
         //QUESTIONS: ===============================================================================================================================================
       
-        // {speaker: "SORTING HAT",   message: "I see... Interesting choice. As it is written, so it shall be done."},
-        //write name of house & say it with the voice thing
-        // {speaker: "SORTING HAT",   message: ""},
-        {speaker: "SORTING HAT",      message: "What is your favorite dessert?", question: "q1", event: "pick"},
+        {speaker: "SORTING HAT",      message: "What is your favorite desert?", question: "q1", event: "pick"},
         {speaker: "SORTING HAT",      message: "Pick an animal.", question: "q2" , event: "pick"},
         {speaker: "SORTING HAT",      message: "What kind of bread are you?", question: "q3", event: "pick"},
         {speaker: "SORTING HAT",      message: "What is your favorite dish?", question: "q4", event: "pick"},
-        {speaker: "SORTING HAT",      message: "If clouds were cotton candy whhich one would you eat?", question: "q5", event: "pick"}, {},
-        {speaker: "SORTING HAT",      message: "Hmm..... Mhm.. I see....", event:"getHouse"},
-        {speaker: "SORTING HAT",      message: "Then it shall be... " + "!!!"},
+        {speaker: "SORTING HAT",      message: "If clouds were cotton candy which one would you eat?", question: "q5", event: "pick"}, {},
+        {speaker: "SORTING HAT",      message: "Hmm..... Mhm.. I see.... Interesting!", event:"getHouse"},
+        {speaker: "SORTING HAT",      message: "Then it shall be... " + house + "!!!"},
+
+        {event: "transition"},
     
         {event: "path"},
     
@@ -50,14 +52,26 @@ function initDialog(username){
     
     
         //4 scene : =================================================================================================================================================
-        {scene:   "end"},
+        {scene:   "night"},
         {speaker: "ME",            message: "I thought he sounded mad, but at this moment, incredible amounts of delicious looking food appeared on all the long table accross the Great Hall!"},
         {speaker: "ME",            message: "I can't think anymore, all this food looks amazing!"},
         {speaker: "ME",            message: "This is my life now! I'm a wizard attending Hogwarts...!"},
-        
+
+        {event: "transition"},
+
+        //6 scene : =================================================================================================================================================
+        {scene: "classHallway"},
+        {speaker: "ME",            message: "Today is the very first day in this new life! I've got classes to take about magical stuff and ... magic!"},
+        {speaker: "ME",            message: "Let's see here.. What do I have for today? "},
+
+        {event: "loadMiniGameMenu"},
+
+        {scene: ""}
+
 
     ];
     
+    //5 scenes
     ravenclawDialog = [
         {scene:   "Ravenclaw",     char:    "luna"},
         {speaker: "LUNA LOVEGOOD", message: "Hi there! " + userName + ", right? My name's Luna, it's nice to meet you. I'm a first year too!", event: "appear"},
@@ -92,10 +106,42 @@ function initDialog(username){
         {scene:   "Hufflepuff",    char:    "cedric"},
         {speaker: "CEDRIC DIGGORY",message: "Heya! Newbie, welcome to Hufflepuff!", event: "appear"},
         {speaker: "ME",            message: "Hi! Thank you!"},
-        {speaker: "CEDRIC DIGGORY",message: "I'm Cedric, I'm a fourth year student."},
-        {speaker: "ME",            message: "It's nice to meet you Cedric! So, you've been here for a while, huh. Everything is so new to me, I wasn't brought up in a wizarding family..."},
-        {speaker: "CEDRIC DIGGORY",message: "Don't worry, you'll get used to it very quickly!"},
+        {speaker: "CEDRIC DIGGORY",message: "I'm Cedric, I'm a fourth year student. And you are " + userName + ", right?"},
+        {speaker: "ME",            message: "Yes that's right! It's nice to meet you, Cedric! So, you've been here for a while, huh. Everything is so new to me, I wasn't brought up in a wizarding family..."},
+        {speaker: "CEDRIC DIGGORY",message: "Don't worry, you'll get used to it in no time!"},
         {speaker: "ME",            message: "Thanks for reassuring me!"}
+    ];
+
+    potionsDialog = [
+        {scene:   "potions",       char:    "snape"},
+        {speaker: "SEVERUS SNAPE", message: "Welcome to your potions class, students. I am Professor Snape, the potions master of Hogwarts.", event: "appear"},
+        {speaker: "SEVERUS SNAPE", message: "Today, we will be learning how to make a Tonic of Excitement. It's quite simple."},
+        {speaker: "SEVERUS SNAPE", message: "Drag each of the ingredients that I've provided for you in your cauldron. Do it correctly, and you'll have yourself a nice little phial of Tonic of Excitement."},
+        
+        {speaker: "SEVERUS SNAPE", message: "Hm... Well done " + userName + "."},
+
+    ];
+    
+    charmsDialog = [
+        {scene:   "charms",          char:    "flitwick"},
+        {speaker: "FILIUS FLITWICK", message: "Hello children! I am Professor Flittwick and I will be your charms teacher this year!", event: "appear"},
+        {speaker: "FILIUS FLITWICK", message: "Today, I'll be teaching you the levitation charm! It is a very simple spell!"},
+        {speaker: "FILIUS FLITWICK", message: "Once you hear me say 'Wingardium Leviosa', repeat after me. If you get it right, the feather I've placed in front of you will levitate!"},
+        {speaker: "FILIUS FLITWICK", message: "Oh, and remember every one: swish and flick!"}, 
+
+        {speaker: "FILIUS FLITWICK", message: "Marvelous! Well done, " + userName + "!"},
+
+
+    ];
+
+    flyingDialog = [
+        {scene:   "flying",          char:    "hooch"},
+        {speaker: "ROLANDA HOOCH",   message: "Alright, everyone! I am Mme. Hooch, your flying teacher. Learning how to fly with a broom is essential for all witches and wizards though quite finicky, so listen to me well!", event: "appear"},
+        {speaker: "ROLANDA HOOCH",   message: "To stay afloat, press the space bar on your keyboard. You must stay up for 10 seconds. If you fall, the timer will restart, and it will continue to do so until you stay up for 10 consecutive seconds!"},
+        {speaker: "ROLANDA HOOCH",   message: "On your marks... And fly!"},
+
+        {speaker: "ROLANDA HOOCH",   message: "Exceptional, " + userName + "! You're a natural!"},
+
     ];
 
     //======================================================================================================================================================================================
