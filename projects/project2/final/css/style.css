@@ -4,7 +4,7 @@ body {
   background-color: black;
 }
 
-#textBox, #buttons{
+#textBox, .questionnaire {
   margin: 0;
   padding: 0;
   width: 100vw;

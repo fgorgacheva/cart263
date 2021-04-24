@@ -43,7 +43,7 @@ let sprites = {
 
     //classes
     flying: {},
-    flyin2: {},
+    flying2: {},
     broom: {},
     charms: {},
     feather: {},
