@@ -5,8 +5,9 @@
  class SceneManager {    
     constructor(){
         this.scenes = {};
+        this.minigames = [];
         this.scenes.beginning  = new Scene(sprites.stairs,    "MINERVA MCGONAGALL", sounds.greatHall,  sprites.mcgonagall);
-        this.scenes.calling    = new Scene(sprites.ceremony,  "MINERVA MCGONAGALL", sounds.sortingHat,  sprites.mcgonagall);
+        this.scenes.calling    = new Scene(sprites.ceremony,  "MINERVA MCGONAGALL", sounds.sortingHat, sprites.mcgonagall);
         this.scenes.ceremony   = new Scene(sprites.ceremony,  "SORTING HAT",        sounds.sortingHat, sprites.hat, null, false);
         this.scenes.Ravenclaw  = new Scene(sprites.greatHall, "LUNA LOVEGOOD",      sounds.ravenclaw,  sprites.luna,         ravenclawDialog);
         this.scenes.Gryffindor = new Scene(sprites.greatHall, "GINNY WEASLEY",      sounds.gryffindor, sprites.ginny,        gryffindorDialog);
@@ -14,10 +15,15 @@
         this.scenes.Hufflepuff = new Scene(sprites.greatHall, "CEDRIC DIGGORY",     sounds.hufflepuff, sprites.cedric,       hufflepuffDialog);
         this.scenes.feast      = new Scene(sprites.greatHall, "ALBUS DUMBLEDORE",   sounds.greatHall,  sprites.dumbledore);
         this.scenes.night      = new Scene(sprites.banquet,   "ME");
-        this.scenes.classes    = new Scene(sprites.hallway,   "ME",                 sounds.ambience);
+        this.scenes.classes    = new Scene(sprites.hallway,   "ME",                 sounds.theme);
+        this.scenes.potions    = new Scene(sprites.potions,   "SEVERUS SNAPE",      null,              sprites.snape,        potionsDialog);
+        this.scenes.charms     = new Scene(sprites.charms,    "FILIUS FLITWICK",    null,              sprites.flitwick,     potionsDialog);
+        this.scenes.potions    = new Scene(sprites.flying,    "ROLANDA HOOCH",      null,              sprites.hooch,        potionsDialog);
+
 
 
         this.currentScene = "beginning";
+        this.isShowingMinigamesButton = false;
 
         this.questionnaire = new Questionnaire();
         house = this.questionnaire.getHouse();
@@ -29,7 +35,7 @@
         
         //set current scene and unload the previous one so sounds don't overlap
         if(commonDialog[index].scene && commonDialog[index].scene != this.currentScene){
-            if(commonDialog[index].scene != "end" && commonDialog[index].scene != "ceremony"){
+            if(commonDialog[index].scene != "night" && commonDialog[index].scene != "ceremony"){
                 this.scenes[this.currentScene]?.unload();
             }
             this.currentScene = commonDialog[index].scene;
@@ -42,8 +48,16 @@
         if(commonDialog[index].event === "getHouse"){
             this.questionnaire.setHouse();
         }
-        if(commonDialog[index].event === ""){
-            
+        if(commonDialog[index].event === "loadMiniGameMenu" && !this.isShowingMinigamesButton){
+            this.isShowingMinigamesButton = true;
+            //create 3 minigames objects.
+            // let potions = new PotionsMinigame("potions", sprites.snape);
+            console.log("hello", index );
+            let charms  = new CharmsMinigame("charms", sprites.flitwick);
+            // let flying  = new FlyingMinigame("flying", sprites.hooch);
+            //show buttons on each.
+            charms.displayButton();
+
         }
 
         //if we reach the point where the path starts, run this 

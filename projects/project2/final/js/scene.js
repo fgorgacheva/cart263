@@ -23,8 +23,15 @@
 
     //will draw the elements of the scene onto the screen
     draw() {
+        
         imageMode(CORNER);
         background(this.background);
+        
+        if(this.pathDialog && this.pathDialog[subindex]?.event == "minigame"){
+            this.minigame.draw();
+            return;
+        }
+
         // console.log(this.playSound);
         if(!this.playHistory[this.music] && this.background != sprites.banquet && this.playSound){
             this.playHistory[this.music] = true;
@@ -35,10 +42,10 @@
             this.drawChar = true;  
         }
 
+       
         if(this.drawChar){
             this.comeInEffect(this.char, width/2, height/2, width*0.30, height*0.8); 
         }
-
     }
 
     unload() {

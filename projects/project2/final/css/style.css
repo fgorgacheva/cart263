@@ -21,7 +21,7 @@ body {
   src: url("../assets/fonts/HogwartsFont.TTF");
 }
 
-#textBox, #continue, #replay{
+#textBox, #replay{
   padding: 0;
   margin: 0;
   color: white;
@@ -29,23 +29,17 @@ body {
   font-size: 100px;
 }
 
-#continue, #replay
-{
+#replay {
   display: none;
   text-decoration: none;
 }
 
-#continue:hover, #replay:hover{
-  text-shadow: 0 0 50px #fcd703;
+.questionnaire, .class {
+  position: absolute; 
+  text-decoration: none; 
 }
 
-.questionnaire {
-  position: absolute;
-  display: none;
-  text-decoration: none;
-}
-
-.questionnaire button, #nameSubmitBtn{  
+.questionnaire button, #nameSubmitBtn, .class {  
   font-family: 'HogwartsFont';
   font-size: 40px;
   color: white;
@@ -66,16 +60,12 @@ button:hover{
   transition: 0.2s;
 }
 
-#cat{
-  margin: 3% 0 3% 0;
-}
-
 main {
   width: 100vw;
   height: 100vh;
 }
 
-#getNameContainer{
+#getNameContainer, .questionnaire, .class {
   display: none;
 }
 
@@ -102,10 +92,6 @@ main {
   font-size: 30%;
 }
 
-.questionnaire{
-  display: none;
-}
+.class{
 
-#scheduleBtns{
-  display: none;
 }

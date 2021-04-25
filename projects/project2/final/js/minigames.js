@@ -4,14 +4,20 @@ related information and functionalities
 **************************************************/
 "use strict";
 
-class Minigame{
+class Minigame {
     constructor(name, teacher){
         this.complete = false;
-        this.name;
+        this.name = name;
     }
 
-    displayButtons(){
-        
+    displayButton(){
+        console.log(this.name);
+        if(this.complete == true){
+            $("#" + this.name).css("pointer-events", "disabled");
+        }
+        else{
+            $("#" + this.name).show();
+        }
     }
 
 }
@@ -23,8 +29,18 @@ class CharmsMinigame extends Minigame{
     }
 
     draw(){
-        background(sprites);
+        background(sprites.charms);
+
+        //make teacher appear, get dialog and disaply with text from scene manager??
 
         
     }
+}
+
+class FlyingMinigame extends Minigame{
+
+}
+
+class PotionsMinigame extends Minigame{
+
 }

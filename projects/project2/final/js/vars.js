@@ -12,7 +12,6 @@ let sounds = {
     hufflepuff: {},
     gryffindor: {},
     slytherin: {},
-    ambience: {}
 };
 
 

@@ -62,9 +62,9 @@ function initDialog(username){
         //6 scene : =================================================================================================================================================
         {scene:   "classes"},
         {speaker: "ME",            message: "Today is the very first day in this new life! I've got classes to take about magical stuff and ... magic!"},
-        {speaker: "ME",            message: "Let's see here.. What classes do I have for today?", event: "schedule"},
+        {speaker: "ME",            message: "Let's see here.. What classes do I have for today?"},
 
-        {event: "loadMiniGameMenu"},
+        {speaker: "ME",            message: "Let's see here.. What classes do I have for today?", event: "loadMiniGameMenu"},
 
         {scene: ""}
 
@@ -119,7 +119,7 @@ function initDialog(username){
         {speaker: "SEVERUS SNAPE", message: "Drag each of the ingredients that I've provided for you in your cauldron. Do it correctly, and you'll have yourself a nice little phial of Tonic of Excitement."},
         
         {speaker: "SEVERUS SNAPE", message: "Hm... Well done " + userName + "."},
-
+        {event:   "potionsMinigame"}
     ];
     
     charmsDialog = [
