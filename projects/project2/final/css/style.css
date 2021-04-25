@@ -4,7 +4,7 @@ body {
   background-color: black;
 }
 
-#textBox, .questionnaire {
+#textBox, .questionnaire, #scheduledBtns {
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -34,7 +34,7 @@ body {
   text-decoration: none;
 }
 
-.questionnaire, .class {
+.questionnaire {
   position: absolute; 
   text-decoration: none; 
 }
@@ -92,6 +92,28 @@ main {
   font-size: 30%;
 }
 
-.class{
+#scheduleBtns{
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display:none;
+}
 
+.class{
+  width: 20%;
+  height: 15%;
+  font-size: 100px;
+  margin: 0;
+}
+
+#charms{
+  margin: 0 5%;
+}
+
+.class:hover{
+  width: 20.5% !important; 
+  height: 15.5% !important;
 }

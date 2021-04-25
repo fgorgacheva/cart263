@@ -13,9 +13,7 @@ function setup() {
     userName = "PLACEHOLDER";
 
     index = -1;
-    subindex = 0;
-
-    
+    subindex = 0;    
 
     document.getElementById("loadingText").style.display = "none";
     document.getElementById("getNameContainer").style.display = "block";

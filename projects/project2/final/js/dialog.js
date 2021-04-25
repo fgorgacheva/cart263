@@ -117,9 +117,9 @@ function initDialog(username){
         {speaker: "SEVERUS SNAPE", message: "Welcome to your potions class, students. I am Professor Snape, the potions master of Hogwarts.", event: "appear"},
         {speaker: "SEVERUS SNAPE", message: "Today, we will be learning how to make a Tonic of Excitement. It's quite simple."},
         {speaker: "SEVERUS SNAPE", message: "Drag each of the ingredients that I've provided for you in your cauldron. Do it correctly, and you'll have yourself a nice little phial of Tonic of Excitement."},
-        
+        {event:   "launch"},
         {speaker: "SEVERUS SNAPE", message: "Hm... Well done " + userName + "."},
-        {event:   "potionsMinigame"}
+        
     ];
     
     charmsDialog = [
@@ -128,7 +128,7 @@ function initDialog(username){
         {speaker: "FILIUS FLITWICK", message: "Today, I'll be teaching you the levitation charm! It is a very simple spell!"},
         {speaker: "FILIUS FLITWICK", message: "Once you hear me say 'Wingardium Leviosa', repeat after me. If you get it right, the feather I've placed in front of you will levitate!"},
         {speaker: "FILIUS FLITWICK", message: "Oh, and remember every one: swish and flick!"}, 
-
+        {event:   "launch"},
         {speaker: "FILIUS FLITWICK", message: "Marvelous! Well done, " + userName + "!"},
 
 
@@ -139,7 +139,7 @@ function initDialog(username){
         {speaker: "ROLANDA HOOCH",   message: "Alright, everyone! I am Mme. Hooch, your flying teacher. Learning how to fly with a broom is essential for all witches and wizards though quite finicky, so listen to me well!", event: "appear"},
         {speaker: "ROLANDA HOOCH",   message: "To stay afloat, press the space bar on your keyboard. You must stay up for 10 seconds. If you fall, the timer will restart, and it will continue to do so until you stay up for 10 consecutive seconds!"},
         {speaker: "ROLANDA HOOCH",   message: "On your marks... And fly!"},
-
+        {event:   "launch"},
         {speaker: "ROLANDA HOOCH",   message: "Exceptional, " + userName + "! You're a natural!"},
 
     ];

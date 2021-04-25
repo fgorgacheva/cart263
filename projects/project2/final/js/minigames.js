@@ -11,7 +11,6 @@ class Minigame {
     }
 
     displayButton(){
-        console.log(this.name);
         if(this.complete == true){
             $("#" + this.name).css("pointer-events", "disabled");
         }
@@ -19,7 +18,6 @@ class Minigame {
             $("#" + this.name).show();
         }
     }
-
 }
 
 class CharmsMinigame extends Minigame{
@@ -29,11 +27,8 @@ class CharmsMinigame extends Minigame{
     }
 
     draw(){
+        $("#scheduleBtns").hide();
         background(sprites.charms);
-
-        //make teacher appear, get dialog and disaply with text from scene manager??
-
-        
     }
 }
 
@@ -44,3 +39,4 @@ class FlyingMinigame extends Minigame{
 class PotionsMinigame extends Minigame{
 
 }
+

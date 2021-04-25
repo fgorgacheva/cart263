@@ -30,7 +30,7 @@ class Questionnaire {
 
     getHouse(){
         let houses = ["Slytherin", "Hufflepuff", "Gryffindor", "Ravenclaw"];
-        let pick = houses[Math.floor(Math.random()*3)];
+        let pick = houses[Math.floor(Math.random()*4)];
         return pick;
     }
 

@@ -33,7 +33,7 @@
         }
 
         // console.log(this.playSound);
-        if(!this.playHistory[this.music] && this.background != sprites.banquet && this.playSound){
+        if(!this.playHistory[this.music] && this.background != sprites.banquet && this.playSound && this.sound != null){
             this.playHistory[this.music] = true;
             this.music.play();
         }
