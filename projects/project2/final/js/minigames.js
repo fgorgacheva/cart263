@@ -13,7 +13,7 @@ class Minigame {
 
     displayButton(){
         if(this.complete == true){
-            $("#flying").prop("disabled", true);
+            $("#" + this.name).prop("disabled", true);
         }
         else{
             $("#" + this.name).show();
@@ -27,19 +27,112 @@ class CharmsMinigame extends Minigame{
     
     constructor(name){
         super(name);
-       
+        this.spell = "wingardium leviosa"
+        this.currentAnswer;
+        this.spellCast = this.spellCast.bind(this);
+        this.showWrongAnswer = false;
+        this.isRightAnswer = false;
+        this.wrongAnswer;
+        this.feather = {
+            x: window.width /2,
+            y: window.height*3/4
+        }
+        this.isFloatingUp = false;
+        this.speedY = 0;
+        this.gravitySpeed = 0;
     }
 
     init(){
-        
+        if(annyang){
+            console.log("listening");
+            let commands = {
+                'Wingardium Leviosa': () => this.spellCast(true),
+                '*anything': (wrongAnswer) => this.spellCast(false, wrongAnswer)
+            };
+            annyang.addCommands(commands);
+            annyang.start();
+        }
+    }
+
+    spellCast(correctAnswer, wrongAnswer){
+        if(correctAnswer){
+            sounds.spell.play();
+            this.isRightAnswer = true;
+            this.isFloatingUp = true;
+            setTimeout(() => {
+                subindex++;
+                sceneManager.minigameLaunched = false;
+                this.complete = true;
+            }, 6000)
+        }
+        else{
+            //print wrongAnwser
+            this.showWrongAnswer = true;
+            this.wrongAnswer = wrongAnswer;
+
+            setTimeout(() => {
+                this.showWrongAnswer = false;
+            }, 2000);
+        }
     }
 
     draw(){
-        
-        imageMode(CORNER);
+        if(!this.initialized){            
+            this.initialized = true;
+            responsiveVoice.speak(this.spell);
+            //
+            setTimeout(() => {
+                console.log("charms initialized");
+                this.init();}
+            , 2000);
+        }
+
         $("#scheduleBtns").hide();
+        imageMode(CORNER);
         background(sprites.charms);
 
+        if(this.showWrongAnswer){
+            fill("#fc0303");
+            textFont(hogwartsFont);
+            textSize(100);
+            text(this.wrongAnswer, window.width / 2, window.height / 4 + 100);
+        }
+        if(this.isRightAnswer){
+            imageMode(CORNER);
+            background(sprites.charms);
+            imageMode(CENTER);
+            image(sprites.feather, this.feather.x, this.feather.y, 600, 400);
+            this.float(this.isFloatingUp);
+            //animate feather
+        }
+        else{
+            fill(255);
+            textFont(hogwartsFont);
+            textSize(200);
+            textAlign(CENTER);
+            text("Wingardium Leviosa", window.width / 2, window.height / 4);
+            imageMode(CENTER);
+            image(sprites.feather, this.feather.x, this.feather.y, 600, 400);
+        }
+    }
+
+    float(isUp){
+        if(isUp){
+            this.speedY += 0.020;
+            this.feather.y -= this.speedY;
+            this.gravitySpeed = 0;
+            if(this.feather.y < 250){
+                this.isFloatingUp = false;
+            }
+        }
+        else{
+            this.gravitySpeed += 0.020;
+            this.feather.y += this.gravitySpeed;
+            this.speedY = 0;
+            if(this.feather.y > window.height * 3 / 4){
+                this.isFloatingUp = true;
+            }
+        }
     }
 }
 
@@ -102,7 +195,7 @@ class FlyingMinigame extends Minigame{
 
         if(!this.initialized){
             this.initialized = true;
-            console.log("Minigame initialized");
+            console.log("flying initialized");
             this.init();
         }
 
@@ -147,7 +240,6 @@ class FlyingMinigame extends Minigame{
                 }
             }
         }
-
         //if student coordinate > window height: restart timer, reinitialize student in the center
         if(this.timer < 10 && this.playerPosition.y > window.height){
             this.timer = 0;
@@ -169,8 +261,6 @@ class FlyingMinigame extends Minigame{
             if(!this.playedWhistle){
                 sounds.whistle.play();
                 this.playedWhistle = true;
-
-                
                 setTimeout(() => {
                     subindex++;
                     sceneManager.minigameLaunched = false;

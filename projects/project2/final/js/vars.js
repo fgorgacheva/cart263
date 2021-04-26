@@ -6,14 +6,15 @@
 let sounds = {
     greatHall: {},
     sortingHat: {},
-    theme: {},
+    ambience: {},
     wondrousWorld: {},
     ravenclaw: {},
     hufflepuff: {},
     gryffindor: {},
     slytherin: {},
     
-    whistle: {}
+    whistle: {},
+    spell: {}
 };
 
 

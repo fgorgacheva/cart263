@@ -14,7 +14,7 @@
         this.scenes.Hufflepuff = new Scene(sprites.greatHall, "CEDRIC DIGGORY",     sounds.hufflepuff, sprites.cedric,       hufflepuffDialog);
         this.scenes.feast      = new Scene(sprites.greatHall, "ALBUS DUMBLEDORE",   sounds.greatHall,  sprites.dumbledore);
         this.scenes.night      = new Scene(sprites.banquet,   "ME");
-        this.scenes.classes    = new Scene(sprites.hallway,   "ME",                 sounds.theme);
+        this.scenes.classes    = new Scene(sprites.hallway,   "ME",                 sounds.ambience);
         this.scenes.potions    = new Scene(sprites.potions,   "SEVERUS SNAPE",      null,              sprites.snape,        potionsDialog);
         this.scenes.charms     = new Scene(sprites.charms,    "FILIUS FLITWICK",    null,              sprites.flitwick,     charmsDialog);
         this.scenes.flying     = new Scene(sprites.flying,    "ROLANDA HOOCH",      null,              sprites.hooch,        flyingDialog);
@@ -68,7 +68,6 @@
             this.minigames.potions.displayButton();
             this.minigames.charms.displayButton();
             this.minigames.flying.displayButton();
-
         }
 
         $(".class").on('click', (e) =>{
@@ -78,9 +77,8 @@
             this.currentMinigame = this.minigames[e.target.id];
             this.minigameClicked = e.target.id;
             $("#scheduleBtns").css('display', 'none');
-        })
+        });
         
-
         if(this.isInMinigame){
             //draw the scene and display the text. will draw until minigame launch event is reached
             this.scenes[this.minigameClicked].draw();
