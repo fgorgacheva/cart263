@@ -16,19 +16,22 @@
         this.scenes.night      = new Scene(sprites.banquet,   "ME");
         this.scenes.classes    = new Scene(sprites.hallway,   "ME",                 sounds.theme);
         this.scenes.potions    = new Scene(sprites.potions,   "SEVERUS SNAPE",      null,              sprites.snape,        potionsDialog);
-        this.scenes.charms     = new Scene(sprites.charms,    "FILIUS FLITWICK",    null,              sprites.flitwick,     potionsDialog);
-        this.scenes.flying     = new Scene(sprites.flying,    "ROLANDA HOOCH",      null,              sprites.hooch,        potionsDialog);
+        this.scenes.charms     = new Scene(sprites.charms,    "FILIUS FLITWICK",    null,              sprites.flitwick,     charmsDialog);
+        this.scenes.flying     = new Scene(sprites.flying,    "ROLANDA HOOCH",      null,              sprites.hooch,        flyingDialog);
 
 
 
         this.currentScene = "beginning";
         this.isShowingMinigamesButton = false;
-
+        this.minigameLaunched = false;
         this.questionnaire = new Questionnaire();
         house = this.questionnaire.getHouse();
-        this.isInPath = false; //checks if we are in path or not, to know to pause or resume the main story increment or increment the path index
-
+        
         this.minigames = {};
+        this.isInPath = false; //checks if we are in path or not, to know to pause or resume the main story increment or increment the path index
+        this.minigames.potions = new PotionsMinigame("potions", sprites.snape);
+        this.minigames.charms  = new CharmsMinigame("charms", sprites.flitwick);
+        this.minigames.flying  = new FlyingMinigame("flying", sprites.hooch);
         this.minigameClicked;
         this.isInMinigame = false; //checks if we're currently in a minigame scene or not
     }
@@ -41,7 +44,12 @@
             if(commonDialog[index].scene != "night" && commonDialog[index].scene != "ceremony"){
                 this.scenes[this.currentScene]?.unload();
             }
+
+           
             this.currentScene = commonDialog[index].scene;
+            if(this.currentScene == "classes"){
+                this.scenes["feast"].unload();
+            }
         }
 
         //if storyline reaches the question part, display the sorting quiz
@@ -54,9 +62,7 @@
         if(commonDialog[index].event === "loadMiniGameMenu" && !this.isShowingMinigamesButton){
             this.isShowingMinigamesButton = true;
             //create 3 minigames objects.
-            this.minigames.potions = new PotionsMinigame("potions", sprites.snape);
-            this.minigames.charms  = new CharmsMinigame("charms", sprites.flitwick);
-            this.minigames.flying  = new FlyingMinigame("flying", sprites.hooch);
+            
             //show buttons on each.
             $("#scheduleBtns").css('display', 'flex');
             this.minigames.potions.displayButton();
@@ -67,22 +73,24 @@
 
         $(".class").on('click', (e) =>{
             e.preventDefault();
-            subindex = 1;
+            subindex = 0;
             this.isInMinigame = true;
             this.currentMinigame = this.minigames[e.target.id];
             this.minigameClicked = e.target.id;
             $("#scheduleBtns").css('display', 'none');
         })
-
-        if(this.isInMinigame){
-            this.displayText(this.currentMinigame[subindex].speaker, this.currentMinigame[subindex].message);
-            this.scenes[this.minigameClicked].draw();
-        }
         
 
-
-        //if we reach the point where the path starts, run this 
-        if(commonDialog[index].event === "path"){
+        if(this.isInMinigame){
+            //draw the scene and display the text. will draw until minigame launch event is reached
+            this.scenes[this.minigameClicked].draw();
+            this.displayText(this.scenes[this.currentMinigame.name].speaker, this.scenes[this.currentMinigame.name].pathDialog[subindex].message);
+            if(this.scenes[this.currentMinigame.name].pathDialog[subindex].event === "launch"){
+                this.currentMinigame.draw();
+                this.minigameLaunched = true;
+            }
+        }
+        else if(commonDialog[index].event === "path"){  //if we reach the point where the path starts, run this 
             this.isInPath = true; //indicates that we are now in path 
             if(this.questionnaire.result){ //check if user has picked a house
                 //if path is finished stop scene music and set isInPath to fasle to continue main story line else load the path characters, text and music
@@ -113,7 +121,6 @@
                 }
             }
         }
-
         else{ //draw scenes and display text as normal
             this.scenes[this.currentScene].draw();
             this.displayText(commonDialog[index].speaker, commonDialog[index].message);
@@ -128,7 +135,7 @@
 
     //will detect if the user clicked to continue the text or clicked on a button
     onClick(){
-        if(userName && nameIsVerified && commonDialog[index].event !== "pick"){
+        if(userName && nameIsVerified && commonDialog[index].event !== "pick" && !this.minigameLaunched){
             if(this.isInPath || this.isInMinigame){ //check if the house has been picked by player and display the corresponding path and once that's done resume the main path
                 subindex++;
             }

@@ -60,6 +60,10 @@ button:hover{
   transition: 0.2s;
 }
 
+button:disabled{
+  background-color: grey;
+}
+
 main {
   width: 100vw;
   height: 100vh;

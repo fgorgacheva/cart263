@@ -119,7 +119,7 @@ function initDialog(username){
         {speaker: "SEVERUS SNAPE", message: "Drag each of the ingredients that I've provided for you in your cauldron. Do it correctly, and you'll have yourself a nice little phial of Tonic of Excitement."},
         {event:   "launch"},
         {speaker: "SEVERUS SNAPE", message: "Hm... Well done " + userName + "."},
-        
+        {event: "returnToClasses"},
     ];
     
     charmsDialog = [
@@ -130,7 +130,7 @@ function initDialog(username){
         {speaker: "FILIUS FLITWICK", message: "Oh, and remember every one: swish and flick!"}, 
         {event:   "launch"},
         {speaker: "FILIUS FLITWICK", message: "Marvelous! Well done, " + userName + "!"},
-
+        {event: "returnToClasses"},
 
     ];
 
@@ -141,7 +141,7 @@ function initDialog(username){
         {speaker: "ROLANDA HOOCH",   message: "On your marks... And fly!"},
         {event:   "launch"},
         {speaker: "ROLANDA HOOCH",   message: "Exceptional, " + userName + "! You're a natural!"},
-
+        {event: "returnToClasses"},
     ];
 
     //======================================================================================================================================================================================

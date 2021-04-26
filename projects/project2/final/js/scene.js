@@ -32,20 +32,26 @@
             return;
         }
 
-        // console.log(this.playSound);
-        if(!this.playHistory[this.music] && this.background != sprites.banquet && this.playSound && this.sound != null){
+        if(this.pathDialog && this.pathDialog[subindex]?.event == "returnToClasses"){
+            sceneManager.isShowingMinigamesButton = false;
+            sceneManager.minigameLaunched = false;
+            sceneManager.isInMinigame = false;
+            index--;
+        }
+
+        if( this.music && !this.playHistory[this.music] && this.background != sprites.banquet && this.playSound){
             this.playHistory[this.music] = true;
             this.music.play();
         }
-
+        
         if(commonDialog[index].event === "appear" || (this.pathDialog && this.pathDialog[subindex] && this.pathDialog[subindex].event === "appear")){
             this.drawChar = true;  
-        }
-
-       
+        } 
+        
         if(this.drawChar){
             this.comeInEffect(this.char, width/2, height/2, width*0.30, height*0.8); 
         }
+
     }
 
     unload() {
@@ -57,7 +63,6 @@
 
     //an effect on characters to make their appearance more dynamic (small to big, like a zoom in effect)
     comeInEffect(img, x, y, w, h){
-        
         let increaseAmount = 0.2;
         this.isFading = true;
         
