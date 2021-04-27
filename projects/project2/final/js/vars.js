@@ -7,10 +7,10 @@ let sounds = {
     greatHall: {},
     sortingHat: {},
     ambience: {},
-    ravenclaw: {},
-    hufflepuff: {},
-    gryffindor: {},
-    slytherin: {},
+    Ravenclaw_sound: {},
+    Hufflepuff_sound: {},
+    Gryffindor_sound: {},
+    Slytherin_sound: {},
     
     whistle: {},
     spell: {},
@@ -31,14 +31,18 @@ let sprites = {
     banquet: {},
     ceremony: {},
     hallway: {},
+    Slytherin_room: {},
+    Hufflepuff_room: {},
+    Gryffindor_room: {},
+    Ravenclaw_room: {},
 
     //characters
     hat: {},
-    cedric: {},
     dumbledore: {},
-    ginny: {},
-    luna: {},
-    malfoy: {},
+    Slytherin_char: {},
+    Hufflepuff_char: {},
+    Gryffindor_char: {},
+    Ravenclaw_char: {},
     mcgonagall: {},
     hooch: {},
     flitwick: {},
@@ -59,6 +63,8 @@ let sprites = {
     phial: {}
     
 }
+let hogwartsFont;
+let schoolFont;
 
 let isDoneLoading;
 let sceneManager;
@@ -68,9 +74,11 @@ let choice;
 let userName;
 let nameIsVerified;
 
-
-let hogwartsFont;
-let schoolFont;
 let house;
+let houses;
+let houseDictionary;
+
+
+
 
 

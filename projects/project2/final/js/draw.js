@@ -10,7 +10,7 @@ function draw() {
 }
 
 function mouseClicked(){
-    if(sceneManager.minigames.potions.started){
+    if(sceneManager && sceneManager.minigames.potions.started){
         sceneManager.minigames.potions.onClick();
         return;
     }

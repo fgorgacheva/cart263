@@ -5,7 +5,7 @@
  class Scene {
 
     //takes the elements that form this scene
-    constructor(background, speaker, sound, character, path, playSound = true){
+    constructor(background, sound, speaker, character, path, playSound = true){
         this.background = background;
         this.speaker    = speaker;
         this.music      = sound;

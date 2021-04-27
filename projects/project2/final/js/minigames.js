@@ -302,7 +302,7 @@ class PotionsMinigame extends Minigame{
         if(isGood){
             sounds.potion.play();
             this.success = true;
-            sceneManager.scenes[sceneManager.minigameClicked].pathDialog.splice(subindex + 1, 0, {speaker: "SEVERUS SNAPE", message: "You can properly follow instructions, congratulations" + username + "..." });
+            sceneManager.scenes[sceneManager.minigameClicked].pathDialog.splice(subindex + 1, 0, {speaker: "SEVERUS SNAPE", message: "You can properly follow instructions, congratulations" + userName + "..." });
         } else {
             sounds.bad_potion.play();
             sceneManager.scenes[sceneManager.minigameClicked].pathDialog.splice(subindex + 1, 0, {speaker: "SEVERUS SNAPE", message: "What a disappointment, " + userName + "..."});
@@ -313,8 +313,9 @@ class PotionsMinigame extends Minigame{
         setTimeout(() => {
             subindex++;
             sceneManager.minigameLaunched = false;
+            sceneManager.minigames.potions.started = false;
             this.complete = true;
-        }, 2000);
+        }, 1500);
     }
 
     init(){

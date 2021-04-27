@@ -66,8 +66,21 @@ function initDialog(username){
 
         {speaker: "ME",            message: "Let's see here.. What classes do I have for today?", event: "loadMiniGameMenu"},
 
-        {scene: ""}
+        {event:   "transition"},
 
+
+        //7 scene : =================================================================================================================================================
+        {scene: "endDay"},
+        {speaker: "ME",            message: "What a wonderful day it has been today!"},
+        {speaker: "HOUSE CHAR",    message: "Hey stranger! How was your first day?"},
+        {speaker: "ME",            message: "It was AWESOME!! What about you?"},
+        {speaker: "HOUSE CHAR",    message: "Same for me! Let's sleep so tomorrow comes faster! Goodnight!"},
+        {speaker: "ME",            message: "Goodnight!"},
+
+        {speaker: "ME",            message: "And just like magic... I'm feeling really sleepy..."},
+        {speaker: "ME",            message: "Goodnight, Hogwarts. See you tomorrow!"},
+
+        {event: "endGame"}
 
     ];
     
@@ -121,7 +134,7 @@ function initDialog(username){
         {speaker: "SEVERUS SNAPE", message: "Do not embarass me."},
         {event:   "launch"},
         // {speaker: "SEVERUS SNAPE", message: "Hm... Well done " + userName + "."},
-        {event: "returnToClasses"},
+        {event:   "returnToClasses"},
     ];
     
     charmsDialog = [
@@ -132,7 +145,7 @@ function initDialog(username){
         {speaker: "FILIUS FLITWICK", message: "Oh, and remember every one: swish and flick!"}, 
         {event:   "launch"},
         {speaker: "FILIUS FLITWICK", message: "Marvelous! Well done, " + userName + "!"},
-        {event: "returnToClasses"},
+        {event:   "returnToClasses"},
 
     ];
 
@@ -143,7 +156,7 @@ function initDialog(username){
         {speaker: "ROLANDA HOOCH",   message: "On your marks... And fly!"},
         {event:   "launch"},
         {speaker: "ROLANDA HOOCH",   message: "Exceptional, " + userName + "! You're a natural!"},
-        {event: "returnToClasses"},
+        {event:   "returnToClasses"},
     ];
 
     //======================================================================================================================================================================================

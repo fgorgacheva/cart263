@@ -34,8 +34,8 @@ class Questionnaire {
         return pick;
     }
 
-    setHouse(){
-        this.result = this.getHouse();
+    setHouse(house){
+        this.result = house;
     }
     
 

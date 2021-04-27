@@ -15,6 +15,10 @@ function setup() {
     index = -1;
     subindex = 0;    
 
+    houses = ["Slytherin", "Hufflepuff", "Gryffindor", "Ravenclaw"];
+    house = houses[Math.floor(Math.random()*4)];
+
+  
     document.getElementById("loadingText").style.display = "none";
     document.getElementById("getNameContainer").style.display = "block";
 
