@@ -14,14 +14,13 @@ class Minigame {
     displayButton(){
         if(this.complete == true){
             $("#" + this.name).prop("disabled", true);
-            // $("#" + this.name).removeClass(".class:hover");
+            $("#" + this.name).removeClass("class");
+            $("#" + this.name).addClass("disabled");
         }
         else{
             $("#" + this.name).show();
         }
     }
-
-    
 }
 
 class CharmsMinigame extends Minigame{
@@ -64,7 +63,7 @@ class CharmsMinigame extends Minigame{
                 subindex++;
                 sceneManager.minigameLaunched = false;
                 this.complete = true;
-            }, 6000)
+            }, 4500)
         }
         else{
             //print wrongAnwser
@@ -104,7 +103,6 @@ class CharmsMinigame extends Minigame{
             imageMode(CENTER);
             image(sprites.feather, this.feather.x, this.feather.y, 600, 400);
             this.float(this.isFloatingUp);
-            //animate feather
         }
         else{
             fill(255);
@@ -237,7 +235,7 @@ class FlyingMinigame extends Minigame{
                     this.flyUp();
                 }
                 if(this.playerPosition.y < 0){
-                    this.playerPosition.y =0;
+                    this.playerPosition.y = 0;
                 }
             }
         }
@@ -302,7 +300,7 @@ class PotionsMinigame extends Minigame{
         if(isGood){
             sounds.potion.play();
             this.success = true;
-            sceneManager.scenes[sceneManager.minigameClicked].pathDialog.splice(subindex + 1, 0, {speaker: "SEVERUS SNAPE", message: "You can properly follow instructions, congratulations" + userName + "..." });
+            sceneManager.scenes[sceneManager.minigameClicked].pathDialog.splice(subindex + 1, 0, {speaker: "SEVERUS SNAPE", message: "You can properly follow instructions, congratulations " + userName + "..." });
         } else {
             sounds.bad_potion.play();
             sceneManager.scenes[sceneManager.minigameClicked].pathDialog.splice(subindex + 1, 0, {speaker: "SEVERUS SNAPE", message: "What a disappointment, " + userName + "..."});

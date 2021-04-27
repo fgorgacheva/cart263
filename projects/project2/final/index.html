@@ -40,7 +40,7 @@
 
     <div id="getNameContainer">
       <label for="name">What is your name?</label> <br>
-      <input type="text" id="userName" name="userName" value="Fel"> <br>
+      <input type="text" id="userName" name="userName" value="" placeholder="Enter a memorable name"> <br>
       <p id="errorMsg"></p>
       <button id="nameSubmitBtn">Submit</button>
     </div>
@@ -91,6 +91,11 @@
     <button class="ingredients" id="mushroom"></button>
     <button class="ingredients" id="batwing" ></button>
     <button class="ingredients" id="mandrake"></button>
+  </div>
+
+  <div id="replay">
+    <p>Click here if you'd like to play again!</p> <br>
+    <button id="playBtn" onClick="window.location.reload();">Play Again</button>
   </div>
 
 </body>

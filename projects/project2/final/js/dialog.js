@@ -65,22 +65,24 @@ function initDialog(username){
         {speaker: "ME",            message: "Let's see here.. What classes do I have for today?"},
 
         {speaker: "ME",            message: "Let's see here.. What classes do I have for today?", event: "loadMiniGameMenu"},
+        {speaker: "ME",            message: "Oh! Seems like I'm all done! I'll head back to the " + house + " common room."},
 
         {event:   "transition"},
 
 
         //7 scene : =================================================================================================================================================
-        {scene: "endDay"},
+        {scene:   "endDay"},
         {speaker: "ME",            message: "What a wonderful day it has been today!"},
-        {speaker: "HOUSE CHAR",    message: "Hey stranger! How was your first day?"},
+        {speaker: "HOUSE CHAR",    message: "Hey stranger! How was your first day?", event: "appear"},
         {speaker: "ME",            message: "It was AWESOME!! What about you?"},
         {speaker: "HOUSE CHAR",    message: "Same for me! Let's sleep so tomorrow comes faster! Goodnight!"},
         {speaker: "ME",            message: "Goodnight!"},
 
-        {speaker: "ME",            message: "And just like magic... I'm feeling really sleepy..."},
-        {speaker: "ME",            message: "Goodnight, Hogwarts. See you tomorrow!"},
+        {event:   "sleep"},
+        {speaker: "ME",            message: "And just like magic... I'm feeling really sleepy...", event: "alone"},
+        {speaker: "ME",            message: "Goodnight, Hogwarts. See you tomorrow!", event: "alone"},
 
-        {event: "endGame"}
+        {event: "gameOver"}
 
     ];
     

@@ -36,18 +36,25 @@
             sceneManager.isShowingMinigamesButton = false;
             sceneManager.minigameLaunched = false;
             sceneManager.isInMinigame = false;
-            index--;
+            // index++;
         }
 
         if( this.music && !this.playHistory[this.music] && this.background != sprites.banquet && this.playSound){
             this.playHistory[this.music] = true;
             this.music.play();
         }
-        
         if(commonDialog[index].event === "appear" || (this.pathDialog && this.pathDialog[subindex] && this.pathDialog[subindex].event === "appear")){
             this.drawChar = true;  
         } 
-        
+        if(commonDialog[index].event == "sleep" || commonDialog[index].event == "alone"){
+            this.drawChar = false;
+        }
+
+        if(commonDialog[index].event == "gameOver"){
+            background(0);
+            //show buttons
+            $("#replay").css('display', 'flex');
+        }
         if(this.drawChar){
             this.comeInEffect(this.char, width/2, height/2, width*0.30, height*0.8); 
         }

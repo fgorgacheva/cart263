@@ -65,9 +65,10 @@
             this.minigames.charms.displayButton();
             this.minigames.flying.displayButton();
 
-            if(this.minigames.potions.completed && this.minigames.charms.completed && this.minigames.flying.completed){
-                this.scenes.endDay(sprites[house + "_room"], charNames[house], )
+            if(this.minigames.potions.complete && this.minigames.charms.complete && this.minigames.flying.complete){
+                this.scenes.endDay = new Scene(houseDictionary[house].commonRoom, houseDictionary[house].sound, houseDictionary[house].charName, houseDictionary[house].charSprite, commonDialog[index]);                
                 index++;
+                $("#scheduleBtns").css('display', 'none');
             }
 
             $(".class").on('click', (e) =>{
@@ -106,48 +107,42 @@
                     this.scenes[this.currentScene]?.unload(); //unload the music that came before it
 
                     this.displayText(houseDictionary[house].charName, houseDictionary[house].dialog[subindex].message);
-
-                    // switch(this.questionnaire.result){
-                    //     case("Ravenclaw"):
-                    //         this.displayText(ravenclawDialog[subindex].speaker, ravenclawDialog[subindex].message);
-                    //         break;
-                    //     case("Slytherin"):
-                    //         this.displayText(slytherinDialog[subindex].speaker, slytherinDialog[subindex].message);
-                    //         break;
-                    //     case("Hufflepuff"):
-                    //         this.displayText(hufflepuffDialog[subindex].speaker, hufflepuffDialog[subindex].message);
-                    //         break;
-                    //     case("Gryffindor"):
-                    //         this.displayText(gryffindorDialog[subindex].speaker, gryffindorDialog[subindex].message);
-                    //         break;
-                    // }
                 }
             }
         }
         else{ //draw scenes and display text as normal
+            if(this.currentScene === "endDay"){
+                if(commonDialog[index].speaker === "HOUSE CHAR"){
+                    commonDialog[index].speaker = houseDictionary[house].charName;
+                }
+                
+            }
             this.scenes[this.currentScene].draw();
             this.displayText(commonDialog[index].speaker, commonDialog[index].message);
+            if(commonDialog[index].event === "sleep"){
+                    imageMode(CORNER);
+                    background(houseDictionary[house].commonRoom);
+                }
         }
 
         if(commonDialog[index].event === "transition"){
             background(0);
         }
-        
-
     }
 
     //will detect if the user clicked to continue the text or clicked on a button
     onClick(){
-        if(userName && nameIsVerified && commonDialog[index].event !== "pick" && !this.minigameLaunched){
+        if(userName && nameIsVerified && commonDialog[index].event !== "pick" && !this.minigameLaunched ){
+            if((commonDialog[index].event === "loadMiniGameMenu" && !this.isInMinigame)){
+                return;
+            }
             if(this.isInPath || this.isInMinigame){ //check if the house has been picked by player and display the corresponding path and once that's done resume the main path
                 subindex++;
             }
             else{
                 index++;
             }
-        }
-        
-        
+        }   
     }
 
     //displays the text styled and placed in the dialog box

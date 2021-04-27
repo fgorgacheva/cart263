@@ -1,10 +1,16 @@
+
+@font-face{
+  font-family: 'HogwartsFont';
+  src: url("../assets/fonts/HogwartsFont.TTF");
+}
+
 body {
   padding: 0;
   margin: 0;
   background-color: black;
 }
 
-#textBox, .questionnaire, #scheduledBtns {
+#textBox, .questionnaire, #scheduledBtns, #getNameContainer, #replay {
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -16,12 +22,7 @@ body {
   text-align: center;
 }
 
-@font-face{
-  font-family: 'HogwartsFont';
-  src: url("../assets/fonts/HogwartsFont.TTF");
-}
-
-#textBox, #replay{
+#textBox, #replay, #getNameContainer{
   padding: 0;
   margin: 0;
   color: white;
@@ -29,17 +30,12 @@ body {
   font-size: 100px;
 }
 
-#replay {
-  display: none;
-  text-decoration: none;
-}
-
 .questionnaire {
   position: absolute; 
   text-decoration: none; 
 }
 
-.questionnaire button, #nameSubmitBtn, .class {  
+.next, .class, #nameSubmitBtn, #playBtn {  
   font-family: 'HogwartsFont';
   font-size: 40px;
   color: white;
@@ -52,7 +48,7 @@ body {
   margin-bottom: 30px;
 }
 
-.class:hover, .next:hover{
+.class:hover, .next:hover, #nameSubmitBtn:hover, #playBtn:hover {
   background-color: #333c52 !important;
   width: 20.5% !important;
   height: 7.5% !important;
@@ -60,16 +56,31 @@ body {
   transition: 0.2s;
 }
 
-.class:disabled, .next:disabled{
-  background-color: grey;
+.class{
+  width: 20%;
+  height: 15%;
+  font-size: 100px;
+  margin: 0;
 }
 
-main {
-  width: 100vw;
-  height: 100vh;
+.class:hover{
+  width: 20.5% !important; 
+  height: 15.5% !important;
 }
 
-#getNameContainer, .questionnaire, .class {
+.disabled{
+  width: 20%;
+  height: 15%;
+  font-size: 100px;
+  font-family: 'HogwartsFont';
+  border-radius: 20px;
+  border: none;;
+  margin: 0;
+  background-color: rgba(110, 110, 110, 0.9);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#getNameContainer, #replay, .questionnaire, .class {
   display: none;
 }
 
@@ -79,21 +90,23 @@ main {
   font-size: 15px;
 }
 
-#nameSubmitBtn{
-  width: 25%;
-  height: 15%;
-}
+/* main {
+  width: 100vw;
+  height: 100vh;
+} */
 
-#nameSubmitBtn:hover{
-  width: 25.5% !important;
-  height: 15.5% !important;
+::placeholder {
+  color: rgb(196, 196, 196);
+  font-size: 25px;
+  opacity: 1; 
 }
 
 #userName{
-  width: 50%;
+  width: 55%;
   height: 10%;
   font-family: 'Schoolbook';
-  font-size: 30%;
+  font-size: 25px;
+  padding: 0;
 }
 
 #scheduleBtns{
@@ -106,27 +119,9 @@ main {
   display:none;
 }
 
-.class{
-  width: 20%;
-  height: 15%;
-  font-size: 100px;
-  margin: 0;
-}
-
 #charms{
   margin: 0 5%;
 }
-
-.class:hover{
-  width: 20.5% !important; 
-  height: 15.5% !important;
-}
-
-.class:disabled:hover{
-  width: 20%;
-  height: 15%;
-}
-
 
 #mushroom{
   background: url("../assets/images/mushroom.png");

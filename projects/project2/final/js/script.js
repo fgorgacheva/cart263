@@ -12,7 +12,7 @@ function init(){
         //starts the story
         if(verifyName(userName)){
             initDialog(userName);
-
+            localStorage.setItem("userName", userName);
             houseDictionary = {
                 "Slytherin" : {charName: "DRACO MALFOY",   charSprite: sprites["Slytherin_char" ],  commonRoom: sprites["Slytherin_room" ], sound: sounds["Slytherin_sound" ], dialog: slytherinDialog},
                 "Hufflepuff": {charName: "CEDRIC DIGGORY", charSprite: sprites["Hufflepuff_char"],  commonRoom: sprites["Hufflepuff_room"], sound: sounds["Hufflepuff_sound"], dialog: hufflepuffDialog},
@@ -21,6 +21,7 @@ function init(){
             };
             sceneManager = new SceneManager();
             index++;
+            
         }
 
        
