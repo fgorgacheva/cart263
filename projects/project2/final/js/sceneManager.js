@@ -107,17 +107,22 @@
                     this.scenes[this.questionnaire.result].draw(); //draw the path scene
                     this.scenes[this.currentScene]?.unload(); //unload the music that came before it
 
-                    this.displayText(houseDictionary[house].charName, houseDictionary[house].dialog[subindex].message);
+                    //replace the HOUSE CHAR placeholder of the path dialog with the correct character name
+                    if(houseDictionary[house].dialog[subindex].speaker === "HOUSE CHAR"){
+                        houseDictionary[house].dialog[subindex].speaker = houseDictionary[house].charName;
+                    }
+
+                    this.displayText(houseDictionary[house].dialog[subindex].speaker, houseDictionary[house].dialog[subindex].message);
                 }
             }
         }
         else{ //draw scenes and display text as normal
             //but if the event is endDay, then check for the "HOUSE CHAR" place holder and replace it with the correct character name
-            if(this.currentScene === "endDay"){
-                if(commonDialog[index].speaker === "HOUSE CHAR"){
+            // if(this.currentScene === "endDay"){
+                if(commonDialog[index].speaker === "HOUSE CHAR" || houseDictionary[house].dialog[subindex].speaker === "HOUSE CHAR"){
                     commonDialog[index].speaker = houseDictionary[house].charName;
                 }
-            }
+            // }
 
             //else draw as normal
             this.scenes[this.currentScene].draw();
@@ -162,7 +167,7 @@
             imageMode(CORNER);
             fill('#2b2b2b');
 
-            if( speaker === "ME"){
+            if(speaker === "ME"){
                 textFont(schoolFont);
                 textAlign(LEFT);
                 textSize(width*0.0125);

@@ -92,41 +92,41 @@ function initDialog(username){
     //5 scenes : =================================================================================================================================================
     ravenclawDialog = [
         {scene:   "Ravenclaw",     char:    "luna"},
-        {speaker: "LUNA LOVEGOOD", message: "Hi there! " + userName + ", right? My name's Luna, it's nice to meet you. I'm a first year too!", event: "appear"},
+        {speaker: "HOUSE CHAR", message: "Hi there! " + userName + ", right? My name's Luna, it's nice to meet you. I'm a first year too!", event: "appear"},
         {speaker: "ME",            message: "It's nice to meet you too, Luna! Are you new to the wizarding world too?"},
-        {speaker: "LUNA LOVEGOOD", message: "No... My shoes have magically disappeared, but I'm not concerned. They'll show up sometime - even when you least expect it."},
+        {speaker: "HOUSE CHAR", message: "No... My shoes have magically disappeared, but I'm not concerned. They'll show up sometime - even when you least expect it."},
         {speaker: "ME",            message: "That's- I- Huh... I hope they show up soon, having shoes is pretty neat most of the time."},
-        {speaker: "LUNA LOVEGOOD", message: "Thank you!"}
+        {speaker: "HOUSE CHAR", message: "Thank you!"}
     ];
 
     gryffindorDialog = [
         {scene:   "Gryffindor",    char:    "ginny"},
-        {speaker: "GINNY WEASLEY", message: "Hey, it's nice to meet you, " + userName + "! I- I'm Ginny, nice to meet you!", event: "appear"},
+        {speaker: "HOUSE CHAR", message: "Hey, it's nice to meet you, " + userName + "! I- I'm Ginny, nice to meet you!", event: "appear"},
         {speaker: "ME",            message: "Oh it's you! I met your brother, Ron, in Diagon Alley! He told me you'd be here! So first year huh, how do you feel?"},
-        {speaker: "GINNY WEASLEY", message: "I'm very excited! I have six older brothers who've all been to Hogwarts, well four are still here. But now it's my turn, too!"},
+        {speaker: "HOUSE CHAR", message: "I'm very excited! I have six older brothers who've all been to Hogwarts, well four are still here. But now it's my turn, too!"},
         {speaker: "ME",            message: "Wow that is one big family! I'm also very excited, I'm almost shaking! Well I can't wait to spend this new year with you!"},
-        {speaker: "GINNY WEASLEY", message: "Me too!"}
-        ];
+        {speaker: "HOUSE CHAR", message: "Me too!"}
+    ];
 
     slytherinDialog = [
         {scene:   "Slytherin",     char:    "malfoy"},
-        {speaker: "DRACO MALFOY",  message: "Hey, first year! I'm Draco Malfoy. Second year student.", event: "appear"},
+        {speaker: "HOUSE CHAR",  message: "Hey, first year! I'm Draco Malfoy. Second year student.", event: "appear"},
         {speaker: "ME",            message: "It's nice to meet you Draco."},
-        {speaker: "DRACO MALFOY",  message: "What's your name again?"},
+        {speaker: "HOUSE CHAR",  message: "What's your name again?"},
         {speaker: "ME",            message: userName + "..."},
-        {speaker: "DRACO MALFOY",  message: "Right... You know anyone around here?"},
+        {speaker: "HOUSE CHAR",  message: "Right... You know anyone around here?"},
         {speaker: "ME",            message: "I met Harry, Ron and Hermione in Diagon Alley last month, they were very nice!"},
-        {speaker: "DRACO MALFOY",  message: "Ugh, that filthy bunch... You'll soon find out that some wizarding families are better than others. You don't wanna go making friends with the wrong sort. I can help you there."},
+        {speaker: "HOUSE CHAR",  message: "Ugh, that filthy bunch... You'll soon find out that some wizarding families are better than others. You don't wanna go making friends with the wrong sort. I can help you there."},
         {speaker: "ME",            message: "That's a bold statement, but I guess it's always better to have a friendly face around!"}
     ];
 
     hufflepuffDialog = [
         {scene:   "Hufflepuff",    char:    "cedric"},
-        {speaker: "CEDRIC DIGGORY",message: "Heya! Newbie, welcome to Hufflepuff!", event: "appear"},
+        {speaker: "HOUSE CHAR",message: "Heya! Newbie, welcome to Hufflepuff!", event: "appear"},
         {speaker: "ME",            message: "Hi! Thank you!"},
-        {speaker: "CEDRIC DIGGORY",message: "I'm Cedric, I'm a fourth year student. And you are " + userName + ", right?"},
+        {speaker: "HOUSE CHAR",message: "I'm Cedric, I'm a fourth year student. And you are " + userName + ", right?"},
         {speaker: "ME",            message: "Yes that's right! It's nice to meet you, Cedric! So, you've been here for a while, huh. Everything is so new to me, I wasn't brought up in a wizarding family..."},
-        {speaker: "CEDRIC DIGGORY",message: "Don't worry, you'll get used to it in no time!"},
+        {speaker: "HOUSE CHAR",message: "Don't worry, you'll get used to it in no time!"},
         {speaker: "ME",            message: "Thanks for reassuring me!"}
     ];
 
@@ -147,7 +147,7 @@ function initDialog(username){
     
     charmsDialog = [
         {scene:   "charms",          char:    "flitwick"},
-        {speaker: "FILIUS FLITWICK", message: "Hello children! I am Professor Flittwick and I will be your charms teacher this year!", event: "appear"},
+        {speaker: "FILIUS FLITWICK", message: "Hello children! I am Professor Flitwick and I will be your charms teacher this year!", event: "appear"},
         {speaker: "FILIUS FLITWICK", message: "Today, I'll be teaching you the levitation charm! It is a very simple spell!"},
         {speaker: "FILIUS FLITWICK", message: "Once you hear me say 'Wingardium Leviosa', repeat after me. If you get it right, the feather I've placed in front of you will levitate!"},
         {speaker: "FILIUS FLITWICK", message: "Oh, and remember every one: swish and flick!"}, 
