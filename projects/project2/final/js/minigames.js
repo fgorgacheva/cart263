@@ -14,6 +14,7 @@ class Minigame {
     displayButton(){
         if(this.complete == true){
             $("#" + this.name).prop("disabled", true);
+            // $("#" + this.name).removeClass(".class:hover");
         }
         else{
             $("#" + this.name).show();
@@ -272,6 +273,90 @@ class FlyingMinigame extends Minigame{
 }
 
 class PotionsMinigame extends Minigame{
+    constructor(name){
+        super(name);
+        this.rightRecipe = ["mushroom", "mandrake", "batwing"];
+        this.attemptedRecipe = [];
+        this.success = false;
+        this.ingredientName;
+        this.started = false;
+    }
+
+    onClick(){
+        if(this.ingredientName){
+            if(mouseX < window.width/2 + 200 && mouseX > window.width/2 - 200 &&
+                mouseY < window.height*3/4 + 200 && mouseY > window.height*3/4 - 200){
+                    console.log("EE");
+                    this.attemptedRecipe.push(this.ingredientName);
+                        
+                    $("#" + this.ingredientName).prop("disabled", true);
+                    this.ingredientName = null;
+                    if(this.attemptedRecipe.length == 3) {
+                        this.gameOver(JSON.stringify(this.attemptedRecipe) == JSON.stringify(this.rightRecipe));
+                    }
+            } 
+        }
+    }
+
+    gameOver(isGood){
+        if(isGood){
+            sounds.potion.play();
+            this.success = true;
+            sceneManager.scenes[sceneManager.minigameClicked].pathDialog.splice(subindex + 1, 0, {speaker: "SEVERUS SNAPE", message: "You can properly follow instructions, congratulations" + username + "..." });
+        } else {
+            sounds.bad_potion.play();
+            sceneManager.scenes[sceneManager.minigameClicked].pathDialog.splice(subindex + 1, 0, {speaker: "SEVERUS SNAPE", message: "What a disappointment, " + userName + "..."});
+        }
+
+        this.madeCorrectPotion = isGood;
+
+        setTimeout(() => {
+            subindex++;
+            sceneManager.minigameLaunched = false;
+            this.complete = true;
+        }, 2000);
+    }
+
+    init(){
+        this.started = true;
+        $("#potionIngredientBtns").css('display', 'flex');
+        $(".ingredients").on('click', (e) => {
+            e.preventDefault();
+            this.ingredientName = e.target.id;
+            $(".ingredients").removeClass("selected");
+            $("#" + this.ingredientName).addClass("selected");
+        });
+    }
+
+    draw(){
+
+        if(!this.initialized){
+            this.initialized = true;
+            console.log("potions initialized");
+            this.init();
+        }
+
+        imageMode(CORNER);
+        background(sprites.potions2);
+        
+        imageMode(CENTER);
+        image(sprites.cauldron, window.width/2, window.height*3/4, 400, 400);
+        
+        
+        if(this.ingredientName){
+            imageMode(CORNER);
+            image(sprites[this.ingredientName], mouseX - 100, mouseY - 100, 200, 200);
+        }
+
+        if(this.success){
+            imageMode(CORNER);
+            background(sprites.potions);
+            imageMode(CENTER);
+            image(sprites.phial, window.width/2, window.height/2);
+        }
+
+    }
+
 
 }
 

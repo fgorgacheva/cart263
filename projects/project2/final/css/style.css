@@ -52,7 +52,7 @@ body {
   margin-bottom: 30px;
 }
 
-button:hover{
+.class:hover, .next:hover{
   background-color: #333c52 !important;
   width: 20.5% !important;
   height: 7.5% !important;
@@ -60,7 +60,7 @@ button:hover{
   transition: 0.2s;
 }
 
-button:disabled{
+.class:disabled, .next:disabled{
   background-color: grey;
 }
 
@@ -120,4 +120,55 @@ main {
 .class:hover{
   width: 20.5% !important; 
   height: 15.5% !important;
+}
+
+.class:disabled:hover{
+  width: 20%;
+  height: 15%;
+}
+
+
+#mushroom{
+  background: url("../assets/images/mushroom.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#batwing{
+  background: url("../assets/images/batwing.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#mandrake{
+  background: url("../assets/images/mandrake.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ingredients{
+  width: 200px;
+  height: 200px;
+  border: none;
+}
+
+#potionIngredientBtns{
+  display: none;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 20vh;
+}
+
+.selected{
+  opacity: 0.5;
+  width: 150px;
+  height: 150px;
+  border: solid black 1px;
+}
+
+.ingredients:disabled{
+  opacity: 0;
 }

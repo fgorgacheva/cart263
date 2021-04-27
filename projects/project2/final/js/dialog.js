@@ -116,9 +116,11 @@ function initDialog(username){
         {scene:   "potions",       char:    "snape"},
         {speaker: "SEVERUS SNAPE", message: "Welcome to your potions class, students. I am Professor Snape, the potions master of Hogwarts.", event: "appear"},
         {speaker: "SEVERUS SNAPE", message: "Today, we will be learning how to make a Tonic of Excitement. It's quite simple."},
-        {speaker: "SEVERUS SNAPE", message: "Drag each of the ingredients that I've provided for you in your cauldron. Do it correctly, and you'll have yourself a nice little phial of Tonic of Excitement."},
+        {speaker: "SEVERUS SNAPE", message: "Place each of the ingredients that I've provided for you in your cauldron in the correct order. Do it correctly, and you'll have yourself a nice phial."},
+        {speaker: "SEVERUS SNAPE", message: "Listen carefully, because I'll only say it once: first add the mushroom, followed by the mandrake root and finally, add the bat wing."},
+        {speaker: "SEVERUS SNAPE", message: "Do not embarass me."},
         {event:   "launch"},
-        {speaker: "SEVERUS SNAPE", message: "Hm... Well done " + userName + "."},
+        // {speaker: "SEVERUS SNAPE", message: "Hm... Well done " + userName + "."},
         {event: "returnToClasses"},
     ];
     

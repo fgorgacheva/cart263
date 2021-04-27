@@ -44,8 +44,6 @@
             if(commonDialog[index].scene != "night" && commonDialog[index].scene != "ceremony"){
                 this.scenes[this.currentScene]?.unload();
             }
-
-           
             this.currentScene = commonDialog[index].scene;
             if(this.currentScene == "classes"){
                 this.scenes["feast"].unload();

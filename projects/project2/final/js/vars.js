@@ -7,14 +7,15 @@ let sounds = {
     greatHall: {},
     sortingHat: {},
     ambience: {},
-    wondrousWorld: {},
     ravenclaw: {},
     hufflepuff: {},
     gryffindor: {},
     slytherin: {},
     
     whistle: {},
-    spell: {}
+    spell: {},
+    potion: {},
+    bad_potion: {}
 };
 
 
@@ -54,8 +55,9 @@ let sprites = {
     batwing: {},
     mushroom: {},
     mandrake: {},
-    cauldron: {}
-
+    cauldron: {},
+    phial: {}
+    
 }
 
 let isDoneLoading;
