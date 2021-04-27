@@ -1,3 +1,7 @@
+/**
+ * all these arrays contain the different dialogs used in the game
+ */
+
 let commonDialog;
 let ravenclawDialog;
 let gryffindorDialog;
@@ -6,26 +10,23 @@ let hufflepuffDialog;
 
 
 function initDialog(username){
+    //contains the dialog for the main path of the game
     commonDialog = [
         //1 scene: =================================================================================================================================================
         {scene:   "beginning",                char:    "mcgonagall"},
         {speaker: "ME",                       message: "I cannot believe I am finally here! Hogwarts doesn't look like anything I've ever seen!"},
         {speaker: "MINERVA MCGONAGALL",       message: "Welcome to Hogwarts!", event: "appear"},
         {speaker: "MINERVA MCGONAGALL",       message: "Before the banquet begins, you must all first be sorted into your Hogwarts House. Once you are called, come forward and I shall place the sorting hat on your head."},
-        //say name entered earlier
-        // {speaker: "MINERVA MCGONAGALL",       message: ""},
     
         {event: "transition"},
 
-        //inter
+
+        //2 scene: =================================================================================================================================================
         {scene:   "calling",                  char:    "mcgonagall"},
         {speaker: "MINERVA MCGONAGALL",       message: "Alright now, children. Form a line and when I call you, please step forward.", event: "appear"},
         {speaker: "MINERVA MCGONAGALL",       message: username + "!"}, {},
         {speaker: "MINERVA MCGONAGALL",       message: "Sit here."},
-        
-        
 
-        //2 scene: =================================================================================================================================================
         {scene:   "ceremony",      char:    "hat"},
         {speaker: "SORTING HAT",   message: "Hmm... Well then, " + userName + ", why don't you tell me a bit about yourself..?", event: "appear" },
         
@@ -40,10 +41,11 @@ function initDialog(username){
         {speaker: "SORTING HAT",      message: "Hmm..... Mhm.. I see.... Interesting!", event:"getHouse"},
         {speaker: "SORTING HAT",      message: "Then it shall be... " + house + "!!!"},
 
-        {event: "transition"},
+        {event:   "transition"},
     
-        {event: "path"},
+        {event:   "path"},
     
+
        //3 scene : =================================================================================================================================================
         {scene:   "feast",         char:    "dumbledore"},
         {speaker: "ALBUS DUMBLEDORE",    message: "Welcome! Welcome to a new year at Hogwarts! Before we begin our banquet, I would like to say a few words. And here they are: ", event: "appear"},
@@ -57,7 +59,8 @@ function initDialog(username){
         {speaker: "ME",            message: "I can't think anymore, all this food looks amazing!"},
         {speaker: "ME",            message: "This is my life now! I'm a wizard attending Hogwarts...!"},
 
-        {event: "transition"},
+        {event:   "transition"},
+
 
         //6 scene : =================================================================================================================================================
         {scene:   "classes"},
@@ -86,7 +89,7 @@ function initDialog(username){
 
     ];
     
-    //5 scenes
+    //5 scenes : =================================================================================================================================================
     ravenclawDialog = [
         {scene:   "Ravenclaw",     char:    "luna"},
         {speaker: "LUNA LOVEGOOD", message: "Hi there! " + userName + ", right? My name's Luna, it's nice to meet you. I'm a first year too!", event: "appear"},
@@ -127,6 +130,7 @@ function initDialog(username){
         {speaker: "ME",            message: "Thanks for reassuring me!"}
     ];
 
+    //ffollowing 3 are the minigames' dialogs
     potionsDialog = [
         {scene:   "potions",       char:    "snape"},
         {speaker: "SEVERUS SNAPE", message: "Welcome to your potions class, students. I am Professor Snape, the potions master of Hogwarts.", event: "appear"},
@@ -134,8 +138,10 @@ function initDialog(username){
         {speaker: "SEVERUS SNAPE", message: "Place each of the ingredients that I've provided for you in your cauldron in the correct order. Do it correctly, and you'll have yourself a nice phial."},
         {speaker: "SEVERUS SNAPE", message: "Listen carefully, because I'll only say it once: first add the mushroom, followed by the mandrake root and finally, add the bat wing."},
         {speaker: "SEVERUS SNAPE", message: "Do not embarass me."},
+    
         {event:   "launch"},
-        // {speaker: "SEVERUS SNAPE", message: "Hm... Well done " + userName + "."},
+        //final response filled in depending on if the user successfully makes the right potion, or fails.
+    
         {event:   "returnToClasses"},
     ];
     
@@ -145,8 +151,10 @@ function initDialog(username){
         {speaker: "FILIUS FLITWICK", message: "Today, I'll be teaching you the levitation charm! It is a very simple spell!"},
         {speaker: "FILIUS FLITWICK", message: "Once you hear me say 'Wingardium Leviosa', repeat after me. If you get it right, the feather I've placed in front of you will levitate!"},
         {speaker: "FILIUS FLITWICK", message: "Oh, and remember every one: swish and flick!"}, 
+       
         {event:   "launch"},
         {speaker: "FILIUS FLITWICK", message: "Marvelous! Well done, " + userName + "!"},
+        
         {event:   "returnToClasses"},
 
     ];
@@ -156,8 +164,10 @@ function initDialog(username){
         {speaker: "ROLANDA HOOCH",   message: "Alright, everyone! I am Mme. Hooch, your flying teacher. Learning how to fly with a broom is essential for all witches and wizards though quite finicky, so listen to me well!", event: "appear"},
         {speaker: "ROLANDA HOOCH",   message: "To stay afloat, press the space bar on your keyboard. You must stay up for 10 seconds. If you fall, the timer will restart, and it will continue to do so until you stay up for 10 consecutive seconds!"},
         {speaker: "ROLANDA HOOCH",   message: "On your marks... And fly!"},
+        
         {event:   "launch"},
         {speaker: "ROLANDA HOOCH",   message: "Exceptional, " + userName + "! You're a natural!"},
+        
         {event:   "returnToClasses"},
     ];
 

@@ -2,7 +2,7 @@
 
 "use strict";
 
-//array containing all sounds
+//all sounds needed
 let sounds = {
     greatHall: {},
     sortingHat: {},
@@ -19,7 +19,7 @@ let sounds = {
 };
 
 
-//array containing all images
+//all the images needed
 let sprites = {
     
     dialogBox: {},

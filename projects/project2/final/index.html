@@ -35,9 +35,10 @@
 
 <body>
   <div id="textBox">
+    <!-- Appears while all the resources are loading so the user can start using the app when it's ready -->
     <p id="loadingText">Loading...</p>
-    <!-- <a id="continue">Click to Start</a> -->
 
+    <!-- To get the user's name filled in the game -->
     <div id="getNameContainer">
       <label for="name">What is your name?</label> <br>
       <input type="text" id="userName" name="userName" value="" placeholder="Enter a memorable name"> <br>
@@ -46,6 +47,7 @@
     </div>
   </div>
 
+  <!-- the sorting quiz questions -->
   <div class="questionnaire" id="q1">
     <button class = "next" >Sahara</button>
     <button class = "next" >Mojave</button>
@@ -81,18 +83,21 @@
     <button class = "next" >Cirrus</button>
   </div>
 
+  <!-- Minigame menu -->
   <div id="scheduleBtns">
     <button class="class" id="potions">Potions</button>
     <button class="class" id="charms">Charms</button>
     <button class="class" id="flying">Flying</button>
   </div>
 
+  <!-- Ingredients for the potions minigame -->
   <div id="potionIngredientBtns">
     <button class="ingredients" id="mushroom"></button>
     <button class="ingredients" id="batwing" ></button>
     <button class="ingredients" id="mandrake"></button>
   </div>
 
+  <!-- Replay button that will refresh the page for the user -->
   <div id="replay">
     <p>Click here if you'd like to play again!</p> <br>
     <button id="playBtn" onClick="window.location.reload();">Play Again</button>

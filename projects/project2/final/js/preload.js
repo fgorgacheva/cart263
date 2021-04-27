@@ -1,15 +1,15 @@
-/* preload function is p5 function used to load all sounds and images as p5 objects,
+/* preload function used to instantiate all p5 objects we will need,
  * here it loads them all into separate arrays (sprites and sounds) to have all elements organized and ready to use
  */
 
 "use strict";
 
-//instantiates/loads an image (arg) as a p5 image 
+//transforms a string(image name) into its path
 function createImageSrc(imgName){
     return "./assets/images/" + imgName + ".png";
 }
 
-//instantiates/loads a sound (arg) to p5 object
+//transforms a string(sound name) into its path
 function createSound(soundName){
     return "./assets/sounds/" + soundName + ".mp3";
 }
@@ -22,7 +22,7 @@ function preload() {
         sprites[key] = loadImage(createImageSrc(key))
     });
 
-    //returns an array with all the loaded sounds
+    //returns an array with all the loaded sounds and set each one to noLoop
     Object.keys(sounds).forEach(key => {
         sounds[key] = loadSound(createSound(key));
         sounds[key].loop = false;

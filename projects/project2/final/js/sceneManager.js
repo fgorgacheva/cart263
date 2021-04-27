@@ -11,7 +11,7 @@
         });
 
         this.scenes.beginning  = new Scene(sprites.stairs,    sounds.greatHall,  "MINERVA MCGONAGALL", sprites.mcgonagall);
-        this.scenes.calling    = new Scene(sprites.ceremony,  sounds.sortingHat, "MINERVA MCGONAGALL",sprites.mcgonagall);
+        this.scenes.calling    = new Scene(sprites.ceremony,  sounds.sortingHat, "MINERVA MCGONAGALL", sprites.mcgonagall);
         this.scenes.ceremony   = new Scene(sprites.ceremony,  sounds.sortingHat, "SORTING HAT",        sprites.hat,                 null,               false);
         this.scenes.feast      = new Scene(sprites.greatHall, sounds.greatHall,  "ALBUS DUMBLEDORE",   sprites.dumbledore);
         this.scenes.night      = new Scene(sprites.banquet,   null,              "ME");
@@ -36,7 +36,6 @@
 
 
     main() {
-        
         //set current scene and unload the previous one so sounds don't overlap
         if(commonDialog[index].scene && commonDialog[index].scene != this.currentScene){
             if(commonDialog[index].scene != "night" && commonDialog[index].scene != "ceremony"){
@@ -52,25 +51,28 @@
         if(commonDialog[index].event === "pick"){
             this.questionnaire.displayButtons();
         }
+        //set the quiz result to the house
         if(commonDialog[index].event === "getHouse"){
             this.questionnaire.setHouse(house);
         }
+        //load minigame menu/buttons
         if(commonDialog[index].event === "loadMiniGameMenu" && !this.isShowingMinigamesButton){
             this.isShowingMinigamesButton = true;
-            //create 3 minigames objects.
-            
-            //show buttons on each.
+
+            //create 3 minigames objects and show buttons for each one
             $("#scheduleBtns").css('display', 'flex');
             this.minigames.potions.displayButton();
             this.minigames.charms.displayButton();
             this.minigames.flying.displayButton();
 
+            //if all 3 games have been completed, create the last scene object and resume the path continnuing after the classes (and hide the buttons)
             if(this.minigames.potions.complete && this.minigames.charms.complete && this.minigames.flying.complete){
                 this.scenes.endDay = new Scene(houseDictionary[house].commonRoom, houseDictionary[house].sound, houseDictionary[house].charName, houseDictionary[house].charSprite, commonDialog[index]);                
                 index++;
                 $("#scheduleBtns").css('display', 'none');
             }
 
+            //onClick one of the game buttons to launch that game
             $(".class").on('click', (e) =>{
                 e.preventDefault();
                 subindex = 0;
@@ -81,12 +83,11 @@
             });
         }
 
-        
-        
+        //if we are in the minigame
         if(this.isInMinigame){
-            //draw the scene and display the text. will draw until minigame launch event is reached
+            //draw the scene and display the text. until the game logic is launched
             this.scenes[this.minigameClicked].draw();
-            this.displayText(this.scenes[this.currentMinigame.name].speaker, this.scenes[this.currentMinigame.name].pathDialog[subindex].message);
+            this.displayText(this.scenes[this.currentMinigame.name].pathDialog[subindex].speaker, this.scenes[this.currentMinigame.name].pathDialog[subindex].message);
             if(this.scenes[this.currentMinigame.name].pathDialog[subindex].event === "launch"){
                 this.currentMinigame.draw();
                 this.minigameLaunched = true;
@@ -111,32 +112,39 @@
             }
         }
         else{ //draw scenes and display text as normal
+            //but if the event is endDay, then check for the "HOUSE CHAR" place holder and replace it with the correct character name
             if(this.currentScene === "endDay"){
                 if(commonDialog[index].speaker === "HOUSE CHAR"){
                     commonDialog[index].speaker = houseDictionary[house].charName;
                 }
-                
             }
+
+            //else draw as normal
             this.scenes[this.currentScene].draw();
             this.displayText(commonDialog[index].speaker, commonDialog[index].message);
+
+            //redraw the background to "remove" the character when we go to sleep
             if(commonDialog[index].event === "sleep"){
-                    imageMode(CORNER);
-                    background(houseDictionary[house].commonRoom);
-                }
+                imageMode(CORNER);
+                background(houseDictionary[house].commonRoom);
+            }
         }
 
+        //transition event draws a black screen to define clearer separation between big scene changes
         if(commonDialog[index].event === "transition"){
             background(0);
         }
     }
 
     //will detect if the user clicked to continue the text or clicked on a button
+    //ensures that while the story goes through, we can click to continue, unless buttons are presented
     onClick(){
         if(userName && nameIsVerified && commonDialog[index].event !== "pick" && !this.minigameLaunched ){
             if((commonDialog[index].event === "loadMiniGameMenu" && !this.isInMinigame)){
                 return;
             }
-            if(this.isInPath || this.isInMinigame){ //check if the house has been picked by player and display the corresponding path and once that's done resume the main path
+            //check if the house has been picked by player and display the corresponding path and once that's done resume the main path
+            if(this.isInPath || this.isInMinigame){ 
                 subindex++;
             }
             else{
@@ -148,6 +156,7 @@
     //displays the text styled and placed in the dialog box
     displayText(speaker, dialog) {
         if(index < commonDialog.length && speaker && dialog){
+            console.log("drawing text");
             imageMode(CENTER);
             image(sprites.dialogBox, width/2, height*0.86, width*0.7, height*0.23);
         
