@@ -17,15 +17,30 @@ Although looking a little cartoonish, I wanted to make the user feel part of tha
 
 
 ## Libraries Used 
-- P5.js
+- p5.js
+- p5.sound
 - JQuery
 - ResponsiveVoice
 - Annyang!
 
 
+## Topics Covered
+- use of p5.js to draw, animate, place elements, specify keypress behaviour and click areas reaction behaviour. 
+- use p5.sound to play and stop music and sounds
+- use jQuery for HTML elements manipulation
+- save and use local storage values
+- use of ResponsiveVoice and Annyang! libraries
+- inheritance 
+- file organization
+- various JS tools for data manipulation
+- use changing variables to fill in dialog (name, house)
+- game is interactive
+- game is reactive to user decisions/actions
+
+
 ## Attribution
 ### Made by me
-- All the character sprites, except Dumbledore
+- All the character sprites, except Dumbledore and Snape
 
 ### Made by other artists
 - All the backgrounds
