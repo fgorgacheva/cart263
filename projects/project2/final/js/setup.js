@@ -20,7 +20,7 @@ function setup() {
   
     //hide loading screen and show the get name form
     document.getElementById("loadingText").style.display = "none";
-    document.getElementById("getNameContainer").style.display = "block";
+    document.getElementById("getNameContainer").style.display = "flex";
 
     //if the username already exists, it will be written/remembered in the form (to avoid always typing the name on restart)
     //else the string will be empty and user must enter a valid name

@@ -63,14 +63,14 @@
         }
         //when drawchar is true, use the effect to draw them
         if(this.drawChar){
-            this.comeInEffect(this.charSprite, width/2, height/2, width*0.30, height*0.8); 
+            this.comeInEffect(this.charSprite, width/2, height/2, width*0.25, height*0.8); 
         }
 
     }
 
     //when called will stop the sound currently playing
     unload() {
-        // this.music.stop();
+        // stop all music except if its the banquet()
         if(this.background != sprites.banquet){
             this.music.stop();
         }
