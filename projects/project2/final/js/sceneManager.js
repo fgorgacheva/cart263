@@ -118,11 +118,11 @@
         }
         else{ //draw scenes and display text as normal
             //but if the event is endDay, then check for the "HOUSE CHAR" place holder and replace it with the correct character name
-            // if(this.currentScene === "endDay"){
-                if(commonDialog[index].speaker === "HOUSE CHAR" || houseDictionary[house].dialog[subindex].speaker === "HOUSE CHAR"){
+            if(this.currentScene === "endDay"){
+                if(commonDialog[index].speaker === "HOUSE CHAR"){
                     commonDialog[index].speaker = houseDictionary[house].charName;
                 }
-            // }
+            }
 
             //else draw as normal
             this.scenes[this.currentScene].draw();
