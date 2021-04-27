@@ -156,7 +156,6 @@
     //displays the text styled and placed in the dialog box
     displayText(speaker, dialog) {
         if(index < commonDialog.length && speaker && dialog){
-            console.log("drawing text");
             imageMode(CENTER);
             image(sprites.dialogBox, width/2, height*0.86, width*0.7, height*0.23);
         

@@ -45,7 +45,7 @@ class CharmsMinigame extends Minigame{
     init(){
         //sets up annyang to listen to the spell
         if(annyang){
-            console.log("listening");
+            console.log("LISTENING");
             let commands = {
                 'Wingardium Leviosa': () => this.spellCast(true),
                 '*anything': (wrongAnswer) => this.spellCast(false, wrongAnswer)
